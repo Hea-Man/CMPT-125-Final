@@ -4,23 +4,23 @@ CMPT 125 Assignment 5
 Names of Team Members
 ---------------------
 
-(include the full names, SFU email addresses, and SFU student numbers of all
-team members)
+Hemant Dhokia; 301444938
+Ozafa Mahmood; (your student #)
 
 
 Limitations
 -----------
 
-(if you didn't implement all requested features, list which ones are missing)
+We haven't done shit :)
 
 
 Known Bugs
 ----------
 
-(list all known bugs here)
+Program doesn't work, cause havent done shit :)
 
 
 Extra Features
 --------------
 
-(if your program has any extra or special features, tell us about them here)
+You think we have time for this bitch?
