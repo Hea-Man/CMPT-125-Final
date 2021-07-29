@@ -1,12 +1,13 @@
-#include <iostream>
+#include <iostream>   
+#include <fstream>      
+#include <string>        
+#include <algorithm>    
+#include "Menu.h"
+
 using namespace std;
 
 int main(void)
 {
-    cout << "Hope this works\n";
-
-    int v;
-    v = 60+9;
-    cout << v << " V variable" << endl;
-    cout << "meow";
+    Menu test;
+    test.main_menu();
 }

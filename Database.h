@@ -4,7 +4,9 @@
 #include <algorithm>    
 #include <cassert>      
 #include "cmpt_error.h" 
-
+/*
+This stores all instances of Supercars.h. This is where we should implement our searching and sorting functions
+*/
 using namespace std;
 
 class Database {

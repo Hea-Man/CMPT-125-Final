@@ -11,6 +11,7 @@ Ozafa Yousuf Mahmood; 301445050; oym@sfu.ca
 
 We haven't done shit :)
 Seems pretty easy though
+I hope its easy cause there is lots of shit to do
 
 Known Bugs
 ----------
@@ -22,4 +23,4 @@ Extra Features
 --------------
 
 You think we have time for this bitch?
-
+OFC NOT HAHA
