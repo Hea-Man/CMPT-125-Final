@@ -5,10 +5,8 @@ Names of Team Members
 ---------------------
 
 Hemant Dhokia; 301444938; hdd@sfu.ca
-Ozafa Yousuf Mahmood; 301445050
-oym@sfu.ca
+Ozafa Yousuf Mahmood; 301445050; oym@sfu.ca
 
-Limitations
 -----------
 
 We haven't done shit :)
