@@ -5,14 +5,14 @@ Names of Team Members
 ---------------------
 
 Hemant Dhokia; 301444938
-Ozafa Mahmood; (your student #)
-
+Ozafa Yousuf Mahmood; 301445050
+oym@sfu.ca
 
 Limitations
 -----------
 
 We haven't done shit :)
-
+Seems pretty easy though
 
 Known Bugs
 ----------
@@ -24,3 +24,4 @@ Extra Features
 --------------
 
 You think we have time for this bitch?
+
