@@ -8,4 +8,5 @@ int main(void)
     int v;
     v = 60+9;
     cout << v << " V variable" << endl;
+    cout << "meow";
 }
