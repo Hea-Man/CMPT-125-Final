@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class int_vec {
+class Database {
 	private:
 		int* data;
 		int space;
@@ -15,7 +15,7 @@ class int_vec {
 
 	public:
 		//Question 1
-		int_vec()
+		Database()
 		{
 			space = 10;
 			used = 0;
@@ -23,7 +23,7 @@ class int_vec {
 		}
 
 		//Question 3
-		int_vec(int n, int s)
+		Database(int n, int s)
 		{
 			space = 10;
 			if (n >= space)
@@ -43,7 +43,7 @@ class int_vec {
 		}
 
 		//Question 4
-		int_vec(int_vec& other)
+		Database(Database& other)
 		{
 			space = other.space;
 			used = other.used;
@@ -55,7 +55,7 @@ class int_vec {
 		}
 
 		//Question 2
-		~int_vec()
+		~Database()
 		{
 			if (data != nullptr)
 			{
@@ -132,7 +132,7 @@ class int_vec {
 			}
 			else if (index > used-1)
 			{
-				cmpt::error("Index is greater than int_vec used");
+				cmpt::error("Index is greater than Database used");
 			}
 			return data[index];
 		}
@@ -145,7 +145,7 @@ class int_vec {
 			}
 			else if (index > used-1)
 			{
-				cmpt::error("Index is greater than int_vec used");
+				cmpt::error("Index is greater than Database used");
 			}
 			data[index] = s;
 		}
@@ -208,7 +208,7 @@ class int_vec {
 		}
 
 		//Question 9
-		void append(int_vec& other)
+		void append(Database& other)
 		{
 			int size = other.used;
 			for (int x = 0; x < size; x++)
@@ -279,7 +279,7 @@ class int_vec {
 		}
 
 		//Question 14
-		int_vec(const string& fname)
+		Database(const string& fname)
 		{
 			space = 10;
 			used = 0;
@@ -300,4 +300,4 @@ class int_vec {
 
 	// ...
 
-}; // class int_vec
+}; // class Database
