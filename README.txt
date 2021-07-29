@@ -4,7 +4,7 @@ CMPT 125 Assignment 5
 Names of Team Members
 ---------------------
 
-Hemant Dhokia; 301444938
+Hemant Dhokia; 301444938; hdd@sfu.ca
 Ozafa Yousuf Mahmood; 301445050
 oym@sfu.ca
 
