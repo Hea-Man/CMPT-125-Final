@@ -28,7 +28,7 @@ class Menu
             int stop = -1;
             while (stop < 0)
             {
-                cout << "Find a Song\n";
+                cout << "Find a Supercar\n";
                 cout << "---------------------------------------------------\n\n";
                 cout << "You can search for a supercar by:\n\n";
                 cout << "(N)ame of Supercar.\n";
