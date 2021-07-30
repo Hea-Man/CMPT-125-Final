@@ -12,7 +12,7 @@ using namespace std;
 
 class Database {
 	private:
-		int* data;
+		Supercar* data;
 		int space;
 		int used;
 
@@ -22,9 +22,9 @@ class Database {
 		{
 			space = 10;
 			used = 0;
-			data = new int[space];
+			data = new Supercar[space];
 		}
-
+/*
 		//Question 3
 		Database(int n, int s)
 		{
@@ -56,6 +56,7 @@ class Database {
 				data[x] = other.data[x];
 			}
 		}
+*/
 
 		//Question 2
 		~Database()
@@ -69,6 +70,7 @@ class Database {
 			data = nullptr;
 		}
 
+/*
 		//Question 5
 		int size() const
 		{
@@ -246,7 +248,7 @@ class Database {
 			delete[] data;
 			data = new int[space];
 		}
-		
+
 		void compact()
 		{
 			if (space > used)
@@ -303,5 +305,6 @@ class Database {
 		}
 
 	// ...
+	*/
 
 }; // class Database

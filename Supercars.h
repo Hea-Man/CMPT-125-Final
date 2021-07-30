@@ -8,3 +8,8 @@ This class should store one database record.
 #include <cassert>
 
 using namespace std;
+
+class Supercar
+{
+
+};
