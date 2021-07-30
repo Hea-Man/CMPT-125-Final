@@ -4,6 +4,7 @@
 #include <algorithm>    
 #include <cassert>      
 #include "cmpt_error.h" 
+#include "Supercars.h"
 /*
 This stores all instances of Supercars.h. This is where we should implement our searching and sorting functions
 */
@@ -245,6 +246,7 @@ class Database {
 			delete[] data;
 			data = new int[space];
 		}
+		
 		void compact()
 		{
 			if (space > used)
