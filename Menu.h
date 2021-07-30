@@ -16,8 +16,75 @@ class Menu
 {
     public:
         Menu(){}
+        void add()
+        {
+            cout << "Add a Supercar\n";
+            cout << "--------------------------------------------------------------------------\n\n";
+            //Add function to add car
+        }
+        void find()
+        {
+            string message;
+            int stop = -1;
+            while (stop < 0)
+            {
+                cout << "Find a Song\n";
+                cout << "---------------------------------------------------\n\n";
+                cout << "You can search for a supercar by:\n\n";
+                cout << "(N)ame of Supercar.\n";
+                cout << "(P)rice of Supercar.\n";
+                cout << "(H)orsepower of Supercar.\n";
+                cout << "(B)rand of Supercars.\n";
+                cout << "(R)eturn to Main Menu.\n";
+                getline(cin,message);
+                cout << "\n";
+                
+                for (char &c : message)
+                {
+                    c = tolower(c);
+                }
+                if (message == "n")
+                {
+                    cout << "You will search by name of car\n";
+                }
+                else if (message == "p")
+                {
+                    cout << "You will search by price of car\n";
+                }
+                else if (message == "h")
+                {
+                    cout << "You will search by horsepower of car\n";
+                }
+                else if (message == "b")
+                {
+                    cout << "You will search by brand of car\n";
+                }
+                else if (message == "r")
+                {
+                    stop++;
+                }
+                else
+                {
+                    cout << "I did not understand your answer. ";
+                }
+            }
+        }
 
-        string main_menu()
+        void remove()
+        {
+            cout << "Remove a Supercar\n";
+            cout << "--------------------------------------------------------------------------\n\n";
+            //Add function to remove car
+        }
+
+        void list()
+        {
+            cout << "List all Supercars\n";
+            cout << "--------------------------------------------------------------------------\n\n";
+            //Add function to output all cars on list
+        }
+
+        void main_menu()
         {
             string message;
             int stop = -1;
@@ -47,19 +114,19 @@ class Menu
                 }
                 if (message == "a")
                 {
-                    cout << "You will add a car\n";
+                    add();
                 }
                 else if (message == "f")
                 {
-                    cout << "You will find a car\n";
+                    find();
                 }
                 else if (message == "d")
                 {
-                    cout << "You will delete a car\n";
+                    remove();
                 }
                 else if (message == "l")
                 {
-                    cout << "You will list all cars\n";
+                    list();
                 }
                 else if (message == "q")
                 {
@@ -71,6 +138,6 @@ class Menu
                     cout << "I did not understand your answer. ";
                 }
             }
-            return "";
         }
+        ~Menu(){}
 };
