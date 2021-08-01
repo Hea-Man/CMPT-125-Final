@@ -17,15 +17,46 @@ class Database {
 		int used;
 
 	public:
-		//Question 1
-		Database()
+		void append(supercar s)
+		{
+			if (used >= space-1)
+			{
+				supercar temporary[space];
+				for (int x = 0; x < used; x++)
+				{
+					temporary[x] = data[x];
+				}
+				space *= 2;
+				delete[] data;
+				data = new supercar[space];
+				for (int x = 0; x < used; x++)
+				{
+					data[x] = temporary[x];
+				}
+			}
+			data[used] = s;
+			used++;
+		}
+
+		Database(const string& fname)
 		{
 			space = 10;
 			used = 0;
-			data = new supercar[space];
+			data = new supercar[space];			
+			string n;
+			int p;
+			fstream fin;
+			fin.open(fname);
+			if (fin.is_open())
+			{
+				while(fin.eof() != true)
+				{
+					fin >> n;
+				}
+			}
+			fin.close();
 		}
 
-		//Question 2
 		~Database()
 		{
 			if (data != nullptr)
@@ -36,82 +67,116 @@ class Database {
 			used = 0;
 			data = nullptr;
 		}
-
 /*
-		string to_str() const
+		void list_one(int index) const
 		{
-			string output = "[";
 			if (used > 0)
 			{
 				if (used == 1)
 				{
-					output = output + to_string(data[0]);
+					string output = "";
+					output = output + data[index].name() + " " + data[index].brand() + " " + data[index].horsepower() + "hp ";
+					output = output + data[index].cylinders() + " " + data[index].price();
+					cout << output;
+					cout << "\n";
 				}
-				else
+			}
+		}
+
+		void list_all() const
+		{
+			if (used > 0)
+			{
+				string output = "";
+				for (int x=0; x<used;x++)
 				{
-					for (int x=0; x<used;x++)
+					output = output + data[x].name() + " " + data[x].brand() + " " + data[x].horsepower() + "hp ";
+					output = output + data[x].cylinders() + " " + data[x].price();
+					cout << output;
+					cout << "\n";
+				}
+			}
+		}
+		
+		int find_car(const string &type) const
+		{
+			if (type == n)
+			{
+				string nme;
+				cout << "Enter the name of the supercar you wish to find: ";
+				getline(cin,nme);
+				cout << "\n";
+				for (int x = 0; x < used; x++)
+				{
+					if (data[x].name() == nme)
 					{
-						if (x==used-1)
-						{
-							output = output + to_string(data[x]);
-						}
-						else
-						{
-							output = output + to_string(data[x]) + ", ";
-						}
+						list_one(x);
 					}
 				}
 			}
-			output = output + "]";
-			return output;
-		}
-		
-		int get(int index) const
-		{
-			if (index < 0)
-			{
-				cmpt::error("Index is less than 0");
-			}
-			else if (index > used-1)
-			{
-				cmpt::error("Index is greater than Database used");
-			}
-			return data[index];
-		}
 
-		void set(int index, int s)
-		{
-			if (index < 0)
+			if (type == p)
 			{
-				cmpt::error("Index is less than 0");
-			}
-			else if (index > used-1)
-			{
-				cmpt::error("Index is greater than Database used");
-			}
-			data[index] = s;
-		}
-
-		void append(int s)
-		{
-			if (used >= space-1)
-			{
-				int temporary[space];
+				string nme;
+				cout << "Enter the price of the supercar you wish to find: ";
+				getline(cin,nme);
+				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					temporary[x] = data[x];
-				}
-				space *= 2;
-				delete[] data;
-				data = new int[space];
-				for (int x = 0; x < used; x++)
-				{
-					data[x] = temporary[x];
+					if (data[x].price() == nme)
+					{
+						list_one(x);
+					}
 				}
 			}
-			data[used] = s;
-			used++;
+
+			if (type == h)
+			{
+				string nme;
+				cout << "Enter the horsepower number the supercar produces: ";
+				getline(cin,nme);
+				cout << "\n";
+				for (int x = 0; x < used; x++)
+				{
+					if (data[x].horsepower() == nme)
+					{
+						list_one(x);
+					}
+				}
+			}
+
+			if (type == b)
+			{
+				string nme;
+				cout << "Enter the brand of the supercar you wish to find: ";
+				getline(cin,nme);
+				cout << "\n";
+				for (int x = 0; x < used; x++)
+				{
+					if (data[x].brand() == nme)
+					{
+						list_one(x);
+					}
+				}
+			}
+
+			if (type == c)
+			{
+				string nme;
+				cout << "Enter the number of cylinders the supercar has: ";
+				getline(cin,nme);
+				cout << "\n";
+				for (int x = 0; x < used; x++)
+				{
+					if (data[x].cylinders() == nme)
+					{
+						list_one(x);
+					}
+				}
+			}
 		}
+
+
 
 		void prepend(int s)
 		{
@@ -192,24 +257,17 @@ class Database {
 			}
 		}
 
-		//Question 14
-		Database(const string& fname)
+		void set(int index, int s)
 		{
-			space = 10;
-			used = 0;
-			data = new int[space];			
-			int n;
-			fstream fin;
-			fin.open(fname);
-			if (fin.is_open())
+			if (index < 0)
 			{
-				while(fin.eof() != true)
-				{
-					fin >> n;
-					append(n);
-				}
+				cmpt::error("Index is less than 0");
 			}
-			fin.close();
+			else if (index > used-1)
+			{
+				cmpt::error("Index is greater than Database used");
+			}
+			data[index] = s;
 		}
 
 	// ...
