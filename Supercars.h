@@ -19,25 +19,133 @@ and you have used vector or a similar class, then your score for this assignment
 #include <string>        
 #include <algorithm>    
 #include <cassert>
+#include "cmpt_error.h"
 
 using namespace std;
 
-class supercar
-{
+// Not to sure if the inputs need to be tested in side of constructor for being 
+// sensible so I just added a few I thought would make sense
+
+class supercar {
 private:
     string name;
+    string brand;
     int horsepower;
     int price;
+    int cylinders;
 
 public:
 
     // Default constructor:
-    supercar()
-    : name("unknown"), horsepower(0),price(0)
-    {}
+    // supercar()
+    // : name("unknown"), brand("unknown"), horsepower(0),price(0), cylinders(0) 
+    // {}
 
     //Constructor:
+    supercar(string s,string b, int hp, int p, int cyln)
+    : name(s) , brand(b) , horsepower(hp) , price(p) , cylinders(cyln)
+    {}
+
     supercar()
+    {
+        int stop = -1;
+        printf("Please enter the name of the car");
+        while (stop==-1) {
+            stop = 0;
+            getline(cin,name);
+
+            // if bad 
+            for (int i = 0 ; i < name.size(); i++){
+                if (name[i] == '!' || name[i] == '@' || name[i] == '#' || name[i] == '$'
+                    || name[i] == '\n' || name[i] == '\t'  )
+                    {
+                        printf("Please re enter the name of the car");
+                        stop = -1;
+                    }
+            }
+        }
+
+        stop = -1;
+        printf("Please enter the name of the brand");
+        while (stop == -1) {
+            stop = 0;
+            getline(cin , brand);
+
+            // if bad
+            for ( int i = 0 ; i < brand.size(); i ++) {
+                if (brand[i] == '!' || brand[i] == '@' || brand[i] == '#' || brand[i] == '$'
+                    || brand[i] == '\n' || brand[i] == '\t'  ) 
+                {
+                    printf("Please re enter the name of the brand");
+                    stop = -1;
+                }
+            }
+        }
+
+        stop = -1;
+        printf("Please enter the horsepower");
+        while (stop == -1) {
+            stop = 0 ;
+            cin >> horsepower;
+
+            // if bad
+            if (horsepower < 0){
+                printf("Please re enter the horsepower");
+                stop = -1;
+            }
+        }
+
+        stop = -1;
+        printf("Please enter the price");
+        while (stop == -1) {
+            stop = 0 ;
+            cin >> price;
+
+            // if bad
+            if (price < 0){
+                printf("Please re enter the price");
+                stop = -1;
+            }
+        }
+
+        stop = -1;
+        printf("Please enter the cylinders");
+        while (stop == -1) {
+            stop = 0 ;
+            cin >> cylinders;
+
+            // if bad
+            if (cylinders < 0){
+                printf("Please re enter the Cylinders amount");
+                stop = -1;
+            }
+        } 
+    }// constructor end
+
+    string getname() const {
+        return name;
+    }
+
+    string getbrand() const {
+        return brand;
+    }
+
+    int gethorsepower() const {
+        return horsepower;
+    }
+
+    int getprice() const {
+        return price;
+    }
+
+    int getcylinders() const {
+        return cylinders;
+    }
 
 
+    //Potentially add setters if Heemant needs em :3
+
+
+    //Deconstructor:
+    ~supercar();
 };
