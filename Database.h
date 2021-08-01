@@ -12,7 +12,7 @@ using namespace std;
 
 class Database {
 	private:
-		Supercar* data;
+		supercar* data;
 		int space;
 		int used;
 
@@ -22,7 +22,7 @@ class Database {
 		{
 			space = 10;
 			used = 0;
-			data = new Supercar[space];
+			data = new supercar[space];
 		}
 /*
 		//Question 3
