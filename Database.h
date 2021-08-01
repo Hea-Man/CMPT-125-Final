@@ -24,39 +24,6 @@ class Database {
 			used = 0;
 			data = new Supercar[space];
 		}
-/*
-		//Question 3
-		Database(int n, int s)
-		{
-			space = 10;
-			if (n >= space)
-			{
-				space = n;
-			}
-			if (n < 0)
-			{
-				cmpt::error("Invalid used Entered\n");
-			}
-			used = n;
-			data = new int[space];
-			for (int i = 0; i < used; i++)
-			{
-				data[i] = s;
-			}
-		}
-
-		//Question 4
-		Database(Database& other)
-		{
-			space = other.space;
-			used = other.used;
-			data = new int[space];
-			for (int x = 0; x < used; x++)
-			{
-				data[x] = other.data[x];
-			}
-		}
-*/
 
 		//Question 2
 		~Database()
@@ -71,25 +38,6 @@ class Database {
 		}
 
 /*
-		//Question 5
-		int size() const
-		{
-			return used;
-		}
-
-		int capacity() const
-		{
-			return space;
-		}
-
-		double pct_used() const
-		{
-			double average = (double)used/(double)space;
-			double rounded = (int)(average * 1000.0)/1000.0;
-			return rounded;
-		}
-
-		//Question 6
 		string to_str() const
 		{
 			string output = "[";
@@ -117,18 +65,7 @@ class Database {
 			output = output + "]";
 			return output;
 		}
-
-		void print()
-		{
-			cout << to_str();
-		}
-
-		void println()
-		{
-			cout << "\n" << to_str() + "\n";
-		}
-
-		//Question 7
+		
 		int get(int index) const
 		{
 			if (index < 0)
