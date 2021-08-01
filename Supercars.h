@@ -19,8 +19,12 @@ and you have used vector or a similar class, then your score for this assignment
 #include <string>        
 #include <algorithm>    
 #include <cassert>
+#include "cmpt_error.h"
 
 using namespace std;
+
+// Not to sure if the inputs need to be tested in side of constructor for being 
+// sensible so I just added a few I thought would make sense
 
 class supercar
 {
@@ -28,6 +32,7 @@ private:
     string name;
     int horsepower;
     int price;
+    bool iselectric;
 
 public:
 
@@ -37,7 +42,29 @@ public:
     {}
 
     //Constructor:
-    supercar()
+    supercar(string s, int hp, int p, bool tf)
+    : name(s) , horsepower(hp) , price(p) , iselectric(tf)
+    {
+        if (price <0){
+            cmpt::error("Price can't be lower that $0");
+        }
 
+        if (horsepower < 0){
+            cmpt::error("horsepower cann't be less than zero");
+        }
+
+        // One of the reasons why we should check inputs before the constructor
+        // if (name.length() < 0){
+        //     cmpt::error("Please enter a valid name");
+        // }
+
+        for (int i = 0 ; i < name.size(); i++){
+            if (name[i] == "!" || name[i] == "@" || name[i] == "#" || name[i] == "$"
+                || name[i] == "\\n" || name[i] == "\\t"  )
+            {
+                cmpt::error("Invalid character inside of name , please enter a sensible name");
+            }
+        }
+    }
 
 };
