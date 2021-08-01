@@ -92,7 +92,6 @@ class Database {
 			data[index] = s;
 		}
 
-		//Question 8
 		void append(int s)
 		{
 			if (used >= space-1)
@@ -149,17 +148,6 @@ class Database {
 			}
 		}
 
-		//Question 9
-		void append(Database& other)
-		{
-			int size = other.used;
-			for (int x = 0; x < size; x++)
-			{
-				append(other.data[x]);
-			}
-		}
-
-		//Question 10
 		void reverse()
 		{
 			if (used > 1)
@@ -178,23 +166,6 @@ class Database {
 			std::sort(data,data+used);
 		}
 
-		//Question 11
-		void clear()
-		{
-			used = 0;
-			delete[] data;
-			data = new int[space];
-		}
-
-		void compact()
-		{
-			if (space > used)
-			{
-				space = used;
-			}
-		}
-
-		//Question 13
 		void remove_all(int n)
 		{
 			int temp[space];

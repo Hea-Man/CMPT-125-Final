@@ -59,6 +59,10 @@ class Menu
                 {
                     cout << "You will search by brand of car\n";
                 }
+                else if (message == "c")
+                {
+                    cout << "You will search by number of cylinders\n";
+                }
                 else if (message == "r")
                 {
                     stop++;
