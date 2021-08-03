@@ -67,7 +67,6 @@ class Database {
 			used = 0;
 			data = nullptr;
 		}
-/*
 		void list_one(int index) const
 		{
 			if (used > 0)
@@ -75,8 +74,8 @@ class Database {
 				if (used == 1)
 				{
 					string output = "";
-					output = output + data[index].name() + " " + data[index].brand() + " " + data[index].horsepower() + "hp ";
-					output = output + data[index].cylinders() + " " + data[index].price();
+					output = output + data[index].getname() + " " + data[index].getbrand() + " " + to_string(data[index].gethorsepower()) + "hp ";
+					output = output + to_string(data[index].getcylinders()) + " " + to_string(data[index].getprice());
 					cout << output;
 					cout << "\n";
 				}
@@ -90,8 +89,8 @@ class Database {
 				string output = "";
 				for (int x=0; x<used;x++)
 				{
-					output = output + data[x].name() + " " + data[x].brand() + " " + data[x].horsepower() + "hp ";
-					output = output + data[x].cylinders() + " " + data[x].price();
+					output = output + data[x].getname() + " " + data[x].getbrand() + " " + to_string(data[x].gethorsepower()) + "hp ";
+					output = output + to_string(data[x].getcylinders()) + " " + to_string(data[x].getprice());
 					cout << output;
 					cout << "\n";
 				}
@@ -100,7 +99,7 @@ class Database {
 		
 		int find_car(const string &type) const
 		{
-			if (type == n)
+			if (type == "n")
 			{
 				string nme;
 				cout << "Enter the name of the supercar you wish to find: ";
@@ -108,67 +107,108 @@ class Database {
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].name() == nme)
+					if (data[x].getname() == nme)
 					{
 						list_one(x);
 					}
 				}
 			}
 
-			if (type == p)
+			if (type == "p")
 			{
 				string nme;
-				cout << "Enter the price of the supercar you wish to find: ";
-				getline(cin,nme);
+				int num;
+				cout << "Enter the price of the supercar: ";
+				int stop = -1;
+				while (stop < 0)
+				{
+					getline(cin,nme);
+					num = stoi(nme);
+					if (num < 0)
+					{
+						cout << "That number is invalid. Please enter a valid number: ";
+					}
+					else
+					{
+						stop++;
+					}
+				}
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].price() == nme)
+					if (data[x].getcylinders() == num)
 					{
 						list_one(x);
 					}
 				}
 			}
 
-			if (type == h)
+			if (type == "h")
 			{
 				string nme;
-				cout << "Enter the horsepower number the supercar produces: ";
-				getline(cin,nme);
+				int num;
+				cout << "Enter the horsepower the supercar has: ";
+				int stop = -1;
+				while (stop < 0)
+				{
+					getline(cin,nme);
+					num = stoi(nme);
+					if (num < 0)
+					{
+						cout << "That number is invalid. Please enter a valid number: ";
+					}
+					else
+					{
+						stop++;
+					}
+				}
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].horsepower() == nme)
+					if (data[x].gethorsepower() == num)
 					{
 						list_one(x);
 					}
 				}
 			}
 
-			if (type == b)
+			if (type == "b")
 			{
 				string nme;
-				cout << "Enter the brand of the supercar you wish to find: ";
-				getline(cin,nme);
+				cout << "Enter the brand of the supercar: ";
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].brand() == nme)
+					if (data[x].getbrand() == nme)
 					{
 						list_one(x);
 					}
 				}
 			}
 
-			if (type == c)
+			if (type == "c")
 			{
 				string nme;
+				int num;
 				cout << "Enter the number of cylinders the supercar has: ";
-				getline(cin,nme);
+				int stop = -1;
+				while (stop < 0)
+				{
+					getline(cin,nme);
+					num = stoi(nme);
+					if (num < 0 || num >= used)
+					{
+						cout << "That number is invalid. Please enter a valid number: ";
+					}
+					else
+					{
+						stop++;
+					}
+				}
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].cylinders() == nme)
+					if (data[x].getcylinders() == num)
 					{
 						list_one(x);
 					}
@@ -176,8 +216,7 @@ class Database {
 			}
 		}
 
-
-
+/*
 		void prepend(int s)
 		{
 			if (used >= space)
