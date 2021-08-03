@@ -17,7 +17,7 @@ class Database {
 		int used;
 
 	public:
-		void append(supercar s)
+		void add_supercar(supercar s)
 		{
 			if (used >= space-1)
 			{
@@ -216,42 +216,37 @@ class Database {
 			}
 		}
 
-/*
-		void prepend(int s)
+		void delete_supercar(int index)
 		{
-			if (used >= space)
+			data[index].setbrand("");
+			data[index].setname("");
+			data[index].setcylinders(0);
+			data[index].sethorsepower(0);
+			data[index].setprice(0);
+			for (int x = index; x < used; x++)
 			{
-				int temporary[space];
-				for (int x = 0; x < used; x++)
-				{
-					temporary[x] = data[x];
-				}
-				space *= 2;
-				delete[] data;
-				data = new int[space];
-				used++;
-				for (int x = 1; x < used; x++)
-				{
-					data[x] = temporary[x-1];
-				}
-				data[0] = s;
+				data[index].setbrand(data[index+1].getbrand());
+				data[index].setname(data[index+1].getname());
+				data[index].setcylinders(data[index+1].getcylinders());
+				data[index].sethorsepower(data[index+1].gethorsepower());
+				data[index].setprice(data[index+1].getprice());
 			}
-			else
-			{
-				int temporary[space];
-				for (int x = 0; x < used; x++)
-				{
-					temporary[x] = data[x];
-				}
-				used++;
-				for (int x = 1; x < used; x++)
-				{
-					data[x] = temporary[x-1];
-				}
-				data[0] = s;
-			}
+			used--;
 		}
 
+/*
+		void set(int index, int s)
+		{
+			if (index < 0)
+			{
+				cmpt::error("Index is less than 0");
+			}
+			else if (index > used-1)
+			{
+				cmpt::error("Index is greater than Database used");
+			}
+			data[index] = s;
+		}
 		void reverse()
 		{
 			if (used > 1)
@@ -268,45 +263,6 @@ class Database {
 		void sort()
 		{
 			std::sort(data,data+used);
-		}
-
-		void remove_all(int n)
-		{
-			int temp[space];
-			int count = 0;
-			int numremoved = 0;
-			for (int x = 0; x < used; x++)
-			{
-				if (data[x] != n)
-				{
-					temp[count] = data[x];
-					count++;
-				}
-				else
-				{
-					numremoved++;
-				}
-			}
-			used = used - numremoved;
-			delete[] data;
-			data = new int[space];
-			for (int x = 0; x < used; x++)
-			{
-				data[x] = temp[x];
-			}
-		}
-
-		void set(int index, int s)
-		{
-			if (index < 0)
-			{
-				cmpt::error("Index is less than 0");
-			}
-			else if (index > used-1)
-			{
-				cmpt::error("Index is greater than Database used");
-			}
-			data[index] = s;
 		}
 
 	// ...
