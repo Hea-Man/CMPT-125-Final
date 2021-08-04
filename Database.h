@@ -214,6 +214,7 @@ class Database {
 					}
 				}
 			}
+			return 0;
 		}
 
 		void delete_supercar(int index)
@@ -234,19 +235,8 @@ class Database {
 			used--;
 		}
 
+
 /*
-		void set(int index, int s)
-		{
-			if (index < 0)
-			{
-				cmpt::error("Index is less than 0");
-			}
-			else if (index > used-1)
-			{
-				cmpt::error("Index is greater than Database used");
-			}
-			data[index] = s;
-		}
 		void reverse()
 		{
 			if (used > 1)
