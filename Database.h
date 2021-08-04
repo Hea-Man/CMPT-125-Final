@@ -44,14 +44,46 @@ class Database {
 			used = 0;
 			data = new supercar[space];			
 			string n;
-			int p;
 			fstream fin;
 			fin.open(fname);
 			if (fin.is_open())
 			{
 				while(fin.eof() != true)
 				{
+					int val = 0;
+					string name;
+					string brand;
+					int power;
+					int price;
+					int cylinders;
 					fin >> n;
+					if (val == 0)
+					{
+						name = n;
+						val++;
+					}
+					if (val == 1)
+					{
+						brand = n;
+						val++;
+					}
+					if (val == 2)
+					{
+						power = stoi(n);
+						val++;
+					}
+					if (val == 3)
+					{
+						price = stoi(n);
+						val++;
+					}
+					if (val == 4)
+					{
+						cylinders = stoi(n);
+						val++;
+					}
+					supercar s = supercar(name, brand, power, price, cylinders);
+					add_supercar(s);
 				}
 			}
 			fin.close();
@@ -67,6 +99,7 @@ class Database {
 			used = 0;
 			data = nullptr;
 		}
+		
 		void list_one(int index) const
 		{
 			if (used > 0)
