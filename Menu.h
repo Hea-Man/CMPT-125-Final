@@ -76,12 +76,7 @@ class Menu
         void main_menu()
         {
             int stop = -1;
-            string filename;
-            cout << "Please enter an appropriate filename. Enter in the following format: ";
-            cout << "[file name].txt ";
-            getline(cin,filename);
-            cout << "I'm here";
-            database d = database(filename);
+            database d = database("cars.txt");
             cout << "I'm there";
             string message;
             stop = -1;
@@ -135,7 +130,7 @@ class Menu
                     cout << "I did not understand your answer. ";
                 }
             }
-            d.save_to_file(filename);
+            d.save_to_file("cars.txt");
         }
         ~Menu(){}
 };

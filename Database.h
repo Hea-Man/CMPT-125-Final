@@ -44,50 +44,55 @@ class database {
 		{
 			space = 10;
 			used = 0;
-			cout << "I'm now here\n";
 			data = new supercar [space];
-			cout << "I'm stuck here\n";	
+			string brand;
+			string name;
+			int power;
+			int price;
+			int cylinders;
 			string n;
 			fstream fin;
+			int val = 0;
 			fin.open(fname);
 			if (fin.is_open())
 			{
 				while(fin.eof() != true)
 				{
-					int val = 0;
-					string brand;
-					string name;
-					int power;
-					int price;
-					int cylinders;
 					fin >> n;
+					cout << n;
 					if (val == 0)
 					{
 						brand = n;
+						cout << brand;
 						val++;
 					}
 					if (val == 1)
 					{
 						name = n;
+						cout << name;
 						val++;
 					}
 					if (val == 2)
 					{
 						power = stoi(n);
+						cout << power;
 						val++;
 					}
 					if (val == 3)
 					{
 						price = stoi(n);
+						cout << price;
 						val++;
 					}
 					if (val == 4)
 					{
 						cylinders = stoi(n);
+						cout << cylinders;
 						val++;
 					}
 					supercar s = supercar(brand, name, power, price, cylinders);
 					add_supercar(s);
+					val = 0;
 				}
 			}
 			fin.close();
