@@ -10,7 +10,7 @@ This stores all instances of Supercars.h. This is where we should implement our 
 */
 using namespace std;
 
-class Database {
+class database {
 	private:
 		supercar* data;
 		int space;
@@ -38,7 +38,7 @@ class Database {
 			used++;
 		}
 
-		Database(const string& fname)
+		database(const string& fname)
 		{
 			space = 10;
 			used = 0;
@@ -89,7 +89,22 @@ class Database {
 			fin.close();
 		}
 
-		~Database()
+		void save_to_file()
+		{
+			string n;
+			fstream fout;
+			fout.open("output.txt");
+			for (int x = 0; x < used; x++)
+			{
+				fout << data[x].getname() + "\t";
+				fout << data[x].getbrand() + "\t";
+				fout << data[x].gethorsepower() + "\t";
+				fout << data[x].getprice() + "\t";
+				fout << data[x].getcylinders() + "\n";
+			}			
+		}
+
+		~database()
 		{
 			if (data != nullptr)
 			{
@@ -99,7 +114,7 @@ class Database {
 			used = 0;
 			data = nullptr;
 		}
-		
+
 		void list_one(int index) const
 		{
 			if (used > 0)
@@ -291,4 +306,4 @@ class Database {
 	// ...
 	*/
 
-}; // class Database
+}; // class database
