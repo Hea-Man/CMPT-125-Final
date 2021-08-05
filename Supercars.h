@@ -16,7 +16,7 @@ and you have used vector or a similar class, then your score for this assignment
 */
 #ifndef SUPERCAR_H
 #define SUPERCAR_H
-//it basically saying when you compile 
+//it basically saying when you compile only load the .h file once
 #include <iostream>      
 #include <fstream>      
 #include <string>        
