@@ -14,6 +14,9 @@ and you have used vector or a similar class, then your score for this assignment
 (if your mark before this check is less than 50%, then your mark won't be changed).
 
 */
+#ifndef SUPERCAR_H
+#define SUPERCAR_H
+//it basically saying when you compile 
 #include <iostream>      
 #include <fstream>      
 #include <string>        
@@ -42,8 +45,8 @@ public:
     // {}
 
     //Constructor:
-    supercar(string s,string b, int hp, int p, int cyln)
-    : name(s) , brand(b) , horsepower(hp) , price(p) , cylinders(cyln)
+    supercar(string s,string b, int hp, int prc, int cyln)
+    : name(s) , brand(b) , horsepower(hp) , price(prc) , cylinders(cyln)
     {}
 
     supercar()
@@ -115,7 +118,7 @@ public:
             cin >> cylinders;
 
             // if bad
-            if (cylinders < 0){
+            if (cylinders < 0 && cylinders > 16){
                 printf("Please re enter the Cylinders amount");
                 stop = -1;
             }
@@ -145,7 +148,94 @@ public:
 
     //Potentially add setters if Heemant needs em :3
 
+    void setname(string nm){
+        int stop = -1;
+        name = nm;
+        while (stop==-1) {
+            stop = 0;
+            // if bad 
+            for (int i = 0 ; i < name.size(); i++){
+                if (name[i] == '!' || name[i] == '@' || name[i] == '#' || name[i] == '$'
+                    || name[i] == '\n' || name[i] == '\t'  )
+                    {
+                        printf("Please re enter the name of the car");
+                        stop = -1;
+                        getline(cin,name);
+                    }
+            }
+            
+        }
+    }
+
+    void setbrand(string brnd){
+        int stop = -1;
+        brand = brnd;
+        while (stop==-1) {
+            stop = 0;
+            // if bad 
+            for (int i = 0 ; i < brand.size(); i++){
+                if (brand[i] == '!' || brand[i] == '@' || brand[i] == '#' || brand[i] == '$'
+                    || brand[i] == '\n' || brand[i] == '\t'  )
+                    {
+                        printf("Please re enter the brand of the car");
+                        getline(cin,brand);
+                        stop = -1;
+                    }
+            }
+        }
+    }
+
+    void sethorsepower(int hrp) {
+        int stop = -1;
+        horsepower = hrp;
+        while (stop == -1) {
+            stop = 0 ;
+            // if bad
+            if (horsepower < 0){
+                printf("Please re enter the horsepower");
+                stop = -1;
+                cin >> horsepower;
+            }
+        }
+
+    }
+
+    void setprice(int prc) {
+        int stop = -1;
+        price = prc;
+        while (stop == -1) {
+            stop = 0 ;
+            // if bad
+            if (price < 0){
+                printf("Please re enter the price");
+                stop = -1;
+                cin >> price;
+            }
+        }
+
+    }
+
+
+    void setcylinders(int cyl) {
+        int stop = -1;
+        cylinders=cyl;
+        while (stop == -1) {
+            stop = 0 ;
+            // if bad
+            if (cylinders < 0 && cylinders >16){
+                printf("Please re enter the horsepower");
+                stop = -1;
+                cin >> price;
+            }
+        }
+
+    }
 
     //Deconstructor:
-    ~supercar();
+    ~supercar(){
+        cout<<"deconstructor called" << endl;
+    }
 };
+
+
+#endif
