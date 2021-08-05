@@ -51,20 +51,20 @@ class database {
 				while(fin.eof() != true)
 				{
 					int val = 0;
-					string name;
 					string brand;
+					string name;
 					int power;
 					int price;
 					int cylinders;
 					fin >> n;
 					if (val == 0)
 					{
-						name = n;
+						brand = n;
 						val++;
 					}
 					if (val == 1)
 					{
-						brand = n;
+						name = n;
 						val++;
 					}
 					if (val == 2)
@@ -82,18 +82,18 @@ class database {
 						cylinders = stoi(n);
 						val++;
 					}
-					supercar s = supercar(name, brand, power, price, cylinders);
+					supercar s = supercar(brand, name, power, price, cylinders);
 					add_supercar(s);
 				}
 			}
 			fin.close();
 		}
 
-		void save_to_file()
+		void save_to_file(const string &fname)
 		{
 			string n;
 			fstream fout;
-			fout.open("output.txt");
+			fout.open(fname);
 			for (int x = 0; x < used; x++)
 			{
 				fout << data[x].getname() + "\t";
@@ -101,7 +101,8 @@ class database {
 				fout << data[x].gethorsepower() + "\t";
 				fout << data[x].getprice() + "\t";
 				fout << data[x].getcylinders() + "\n";
-			}			
+			}		
+			fout.close();	
 		}
 
 		~database()
@@ -265,25 +266,31 @@ class database {
 			return 0;
 		}
 
-		void delete_supercar(int index)
+		void delete_supercar()
 		{
-			data[index].setbrand("");
-			data[index].setname("");
-			data[index].setcylinders(0);
-			data[index].sethorsepower(0);
-			data[index].setprice(0);
-			for (int x = index; x < used; x++)
+			string brand;
+			string name;
+			cout << "Enter the brand of the supercar you would like to remove: ";
+			getline(cin,brand);
+			getline(cin,name);
+			for (int x = 0; x < used; x++)
 			{
-				data[index].setbrand(data[index+1].getbrand());
-				data[index].setname(data[index+1].getname());
-				data[index].setcylinders(data[index+1].getcylinders());
-				data[index].sethorsepower(data[index+1].gethorsepower());
-				data[index].setprice(data[index+1].getprice());
-			}
-			used--;
+				if (data[x].getbrand() == brand && data[x].getname() == name)
+				{
+					cout << "Supercar Found. Deleting Supercar...";
+					for (int y = x+1; y < used; y++)
+					{
+						data[y-1].setbrand(data[y].getbrand());
+						data[y-1].setname(data[y].getname());
+						data[y-1].setcylinders(data[y].getcylinders());
+						data[y-1].sethorsepower(data[y].gethorsepower());
+						data[y-1].setprice(data[y].getprice());
+					}
+					cout << "Supercar Deleted.\n";
+					used--;
+				}
+			}		
 		}
-
-
 /*
 		void reverse()
 		{

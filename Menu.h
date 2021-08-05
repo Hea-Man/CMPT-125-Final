@@ -16,13 +16,14 @@ class Menu
 {
     public:
         Menu(){}
-        void add()
+        void add(database d)
         {
             cout << "Add a Supercar\n";
             cout << "--------------------------------------------------------------------------\n\n";
-            //Add function to add car
+            supercar s = supercar();
+            d.add_supercar(s);
         }
-        void find()
+        void find(database d)
         {
             string message;
             int stop = -1;
@@ -43,25 +44,9 @@ class Menu
                 {
                     c = tolower(c);
                 }
-                if (message == "n")
+                if (message == "n" || message == "p" || message == "h" || message == "b" || message == "c")
                 {
-                    cout << "You will search by name of car\n";
-                }
-                else if (message == "p")
-                {
-                    cout << "You will search by price of car\n";
-                }
-                else if (message == "h")
-                {
-                    cout << "You will search by horsepower of car\n";
-                }
-                else if (message == "b")
-                {
-                    cout << "You will search by brand of car\n";
-                }
-                else if (message == "c")
-                {
-                    cout << "You will search by number of cylinders\n";
+                    d.find_car(message);
                 }
                 else if (message == "r")
                 {
@@ -74,24 +59,33 @@ class Menu
             }
         }
 
-        void remove()
+        void remove(database d)
         {
             cout << "Remove a Supercar\n";
             cout << "--------------------------------------------------------------------------\n\n";
-            //Add function to remove car
+            d.delete_supercar();
         }
 
-        void list()
+        void list(database d)
         {
             cout << "List all Supercars\n";
             cout << "--------------------------------------------------------------------------\n\n";
-            //Add function to output all cars on list
+            d.list_all();
         }
 
         void main_menu()
         {
-            string message;
             int stop = -1;
+            string filename;
+            while (stop < 0)
+            {
+                cout << "Please enter an appropriate filename. Enter in the following format: ";
+                cout << "[file name].txt ";
+                getline(cin,filename);
+            }
+            database d = database(filename);
+            string message;
+            stop = -1;
             int first = 0;
             while (stop < 0)
             {
@@ -118,19 +112,19 @@ class Menu
                 }
                 if (message == "a")
                 {
-                    add();
+                    add(d);
                 }
                 else if (message == "f")
                 {
-                    find();
+                    find(d);
                 }
                 else if (message == "d")
                 {
-                    remove();
+                    remove(d);
                 }
                 else if (message == "l")
                 {
-                    list();
+                    list(d);
                 }
                 else if (message == "q")
                 {
