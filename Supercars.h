@@ -31,8 +31,8 @@ using namespace std;
 
 class supercar {
 private:
-    string name;
     string brand;
+    string name;
     int horsepower;
     int price;
     int cylinders;
