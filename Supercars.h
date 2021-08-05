@@ -45,8 +45,8 @@ public:
     // {}
 
     //Constructor:
-    supercar(string s,string b, int hp, int prc, int cyln)
-    : name(s) , brand(b) , horsepower(hp) , price(prc) , cylinders(cyln)
+    supercar(string b,string s, int hp, int prc, int cyln)
+    :   brand(b) ,name(s) , horsepower(hp) , price(prc) , cylinders(cyln)
     {}
 
     supercar()
