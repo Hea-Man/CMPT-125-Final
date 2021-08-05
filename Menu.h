@@ -136,6 +136,7 @@ class Menu
                     cout << "I did not understand your answer. ";
                 }
             }
+            d.save_to_file(filename);
         }
         ~Menu(){}
 };
