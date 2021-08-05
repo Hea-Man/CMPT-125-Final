@@ -20,7 +20,7 @@ class Menu
         {
             cout << "Add a Supercar\n";
             cout << "--------------------------------------------------------------------------\n\n";
-            supercar s = supercar();
+            supercar s = supercar(-1);
             d.add_supercar(s);
         }
         void find(database d)
@@ -80,7 +80,9 @@ class Menu
             cout << "Please enter an appropriate filename. Enter in the following format: ";
             cout << "[file name].txt ";
             getline(cin,filename);
+            cout << "I'm here";
             database d = database(filename);
+            cout << "I'm there";
             string message;
             stop = -1;
             int first = 0;

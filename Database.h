@@ -44,7 +44,9 @@ class database {
 		{
 			space = 10;
 			used = 0;
-			data = new supercar[space];			
+			cout << "I'm now here\n";
+			data = new supercar [space];
+			cout << "I'm stuck here\n";	
 			string n;
 			fstream fin;
 			fin.open(fname);

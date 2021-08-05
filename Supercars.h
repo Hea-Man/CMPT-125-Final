@@ -40,18 +40,17 @@ private:
 public:
 
     // Default constructor:
-    // supercar()
-    // : name("unknown"), brand("unknown"), horsepower(0),price(0), cylinders(0) 
-    // {}
+    supercar()
+    {}
 
     //Constructor:
     supercar(string b,string s, int hp, int prc, int cyln)
     :   brand(b) ,name(s) , horsepower(hp) , price(prc) , cylinders(cyln)
     {}
 
-    supercar()
+    supercar(int s)
     {
-        int stop = -1;
+        int stop = s;
         printf("Please enter the name of the car");
         while (stop==-1) {
             stop = 0;
