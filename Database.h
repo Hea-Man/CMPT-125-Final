@@ -17,6 +17,7 @@ class database {
 		int used;
 
 	public:
+		//Adds a supercar to the array
 		void add_supercar(supercar s)
 		{
 			if (used >= space-1)
@@ -38,6 +39,7 @@ class database {
 			used++;
 		}
 
+		//This creates the database from the file
 		database(const string& fname)
 		{
 			space = 10;
@@ -89,6 +91,7 @@ class database {
 			fin.close();
 		}
 
+		//Saves the array to a file
 		void save_to_file(const string &fname)
 		{
 			string n;
@@ -96,8 +99,8 @@ class database {
 			fout.open(fname);
 			for (int x = 0; x < used; x++)
 			{
-				fout << data[x].getname() + "\t";
 				fout << data[x].getbrand() + "\t";
+				fout << data[x].getname() + "\t";
 				fout << data[x].gethorsepower() + "\t";
 				fout << data[x].getprice() + "\t";
 				fout << data[x].getcylinders() + "\n";
@@ -105,6 +108,7 @@ class database {
 			fout.close();	
 		}
 
+		//destructor for database.h
 		~database()
 		{
 			if (data != nullptr)
@@ -116,6 +120,7 @@ class database {
 			data = nullptr;
 		}
 
+		//prints one supercar to the terminal. Used only for the find() function
 		void list_one(int index) const
 		{
 			if (used > 0)
@@ -131,6 +136,7 @@ class database {
 			}
 		}
 
+		//Lists every supercar in the array
 		void list_all() const
 		{
 			if (used > 0)
@@ -146,6 +152,7 @@ class database {
 			}
 		}
 		
+		//Finds a car in the array
 		int find_car(const string &type) const
 		{
 			if (type == "n")
@@ -291,7 +298,7 @@ class database {
 				}
 			}		
 		}
-		
+
 /*
 		void reverse()
 		{
