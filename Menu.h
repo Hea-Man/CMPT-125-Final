@@ -77,12 +77,9 @@ class Menu
         {
             int stop = -1;
             string filename;
-            while (stop < 0)
-            {
-                cout << "Please enter an appropriate filename. Enter in the following format: ";
-                cout << "[file name].txt ";
-                getline(cin,filename);
-            }
+            cout << "Please enter an appropriate filename. Enter in the following format: ";
+            cout << "[file name].txt ";
+            getline(cin,filename);
             database d = database(filename);
             string message;
             stop = -1;
