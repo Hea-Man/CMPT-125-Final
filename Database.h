@@ -45,6 +45,7 @@ class database {
 			space = 10;
 			used = 0;
 			data = new supercar [space];
+			cout << fname << "\n";
 			string brand;
 			string name;
 			int power;
@@ -59,43 +60,45 @@ class database {
 				while(fin.eof() != true)
 				{
 					fin >> n;
-					cout << n;
 					if (val == 0)
 					{
 						brand = n;
-						cout << brand;
+						cout << brand << "\n";
 						val++;
 					}
-					if (val == 1)
+					else if (val == 1)
 					{
 						name = n;
-						cout << name;
+						cout << name << "\n";
 						val++;
 					}
-					if (val == 2)
+					else if (val == 2)
 					{
 						power = stoi(n);
-						cout << power;
+						cout << power << "\n";
 						val++;
 					}
-					if (val == 3)
+					else if (val == 3)
 					{
 						price = stoi(n);
-						cout << price;
+						cout << price << "\n";
 						val++;
 					}
-					if (val == 4)
+					else
 					{
 						cylinders = stoi(n);
-						cout << cylinders;
+						cout << cylinders << "\n";
 						val++;
 					}
-					supercar s = supercar(brand, name, power, price, cylinders);
-					add_supercar(s);
+					if (val == 5)
+					{
+						supercar s = supercar(brand, name, power, price, cylinders);
+						add_supercar(s);
+					}
 					val = 0;
-				}
+			 	}
 			}
-			fin.close();
+		fin.close();
 		}
 
 		//Saves the array to a file

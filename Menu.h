@@ -1,6 +1,8 @@
 /*
 This class controls the menu and should dictate what the other classes should do.
 */
+#ifndef MENU_H
+#define MENU_H
 
 #include <iostream>      
 #include <fstream>      
@@ -77,7 +79,6 @@ class Menu
         {
             int stop = -1;
             database d = database("cars.txt");
-            cout << "I'm there";
             string message;
             stop = -1;
             int first = 0;
@@ -134,3 +135,6 @@ class Menu
         }
         ~Menu(){}
 };
+
+
+#endif
