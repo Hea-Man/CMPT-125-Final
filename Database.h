@@ -283,6 +283,7 @@ class database {
 			string name;
 			cout << "Enter the brand of the supercar you would like to remove: ";
 			getline(cin,brand);
+			cout << "Enter the name of the super car you would like to remove: ";
 			getline(cin,name);
 			for (int x = 0; x < used; x++)
 			{
