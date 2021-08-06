@@ -289,14 +289,25 @@ class database {
 			{
 				if (data[x]->getbrand() == brand && data[x]->getname() == name)
 				{
-					cout << "Supercar Found. Deleting Supercar...";
-					for (int y = x+1; y < used; y++)
+					cout << "Supercar Found. Deleting Supercar";
+					if (x == (used - 1))
 					{
-						data[y-1]->setbrand(data[y]->getbrand());
-						data[y-1]->setname(data[y]->getname());
-						data[y-1]->setcylinders(data[y]->getcylinders());
-						data[y-1]->sethorsepower(data[y]->gethorsepower());
-						data[y-1]->setprice(data[y]->getprice());
+						data[x]->setbrand("");
+						data[x]->setname("");
+						data[x]->sethorsepower(0);
+						data[x]->setprice(0);
+						data[x]->setcylinders(0);
+					}
+					else
+					{
+						for (int y = x+1; y < used; y++)
+						{
+							data[y-1]->setbrand(data[y]->getbrand());
+							data[y-1]->setname(data[y]->getname());
+							data[y-1]->sethorsepower(data[y]->gethorsepower());
+							data[y-1]->setprice(data[y]->getprice());
+							data[y-1]->setcylinders(data[y]->getcylinders());
+						}
 					}
 					cout << "Supercar Deleted.\n";
 					used--;
