@@ -89,13 +89,15 @@ public:
         while (stop == -1) {
             stop = 0 ;
             cin >> horsepower;
-
+            cout << "I am here \n";
             // if bad
-            if (horsepower < 0){
+            if ((isdigit(horsepower))==0 ){
                 printf("Please re enter the horsepower: ");
                 stop = -1;
             }
+            cout << "I am here 2  \n";
         }
+         cout << "I am here 3 \n";
 
         stop = -1;
         printf("Please enter the price: ");
