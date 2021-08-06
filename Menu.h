@@ -18,14 +18,15 @@ class Menu
 {
     public:
         Menu(){}
-        void add(database d)
+        void add(database &d)
         {
             cout << "Add a Supercar\n";
             cout << "--------------------------------------------------------------------------\n\n";
-            supercar s = supercar(-1);
+            int a = -1;
+            supercar *s = new supercar(a);
             d.add_supercar(s);
         }
-        void find(database d)
+        void find(database &d)
         {
             string message;
             int stop = -1;
@@ -61,14 +62,14 @@ class Menu
             }
         }
 
-        void remove(database d)
+        void remove(database &d)
         {
             cout << "Remove a Supercar\n";
             cout << "--------------------------------------------------------------------------\n\n";
             d.delete_supercar();
         }
 
-        void list(database d)
+        void list(database &d)
         {
             cout << "List all Supercars\n";
             cout << "--------------------------------------------------------------------------\n\n";
@@ -78,7 +79,8 @@ class Menu
         void main_menu()
         {
             int stop = -1;
-            database d = database("cars.txt");
+            database d("cars.txt");
+            cout << d.getused() << " " << d.getspace() << "\n";
             string message;
             stop = -1;
             int first = 0;

@@ -12,24 +12,24 @@ using namespace std;
 
 class database {
 	private:
-		supercar* data;
+		supercar** data;
 		int space;
 		int used;
 
 	public:
 		//Adds a supercar to the array
-		void add_supercar(supercar s)
+		void add_supercar(supercar *s)
 		{
 			if (used >= space-1)
 			{
-				supercar temporary[space];
+				supercar* temporary[space];
 				for (int x = 0; x < used; x++)
 				{
 					temporary[x] = data[x];
 				}
 				space *= 2;
 				delete[] data;
-				data = new supercar[space];
+				data = new supercar*[space];
 				for (int x = 0; x < used; x++)
 				{
 					data[x] = temporary[x];
@@ -44,7 +44,7 @@ class database {
 		{
 			space = 10;
 			used = 0;
-			data = new supercar [space];
+			data = new supercar*[space];
 			cout << fname << "\n";
 			string brand;
 			string name;
@@ -63,39 +63,34 @@ class database {
 					if (val == 0)
 					{
 						brand = n;
-						cout << brand << "\n";
 						val++;
 					}
 					else if (val == 1)
 					{
 						name = n;
-						cout << name << "\n";
 						val++;
 					}
 					else if (val == 2)
 					{
 						power = stoi(n);
-						cout << power << "\n";
 						val++;
 					}
 					else if (val == 3)
 					{
 						price = stoi(n);
-						cout << price << "\n";
 						val++;
 					}
 					else
 					{
 						cylinders = stoi(n);
-						cout << cylinders << "\n";
 						val++;
 					}
 					if (val == 5)
 					{
-						supercar s = supercar(brand, name, power, price, cylinders);
+						supercar *s = new supercar (brand, name, power, price, cylinders);
 						add_supercar(s);
+						val = 0;
 					}
-					val = 0;
 			 	}
 			}
 		fin.close();
@@ -109,11 +104,11 @@ class database {
 			fout.open(fname);
 			for (int x = 0; x < used; x++)
 			{
-				fout << data[x].getbrand() + "\t";
-				fout << data[x].getname() + "\t";
-				fout << data[x].gethorsepower() + "\t";
-				fout << data[x].getprice() + "\t";
-				fout << data[x].getcylinders() + "\n";
+				fout << data[x]->getbrand() + "\t";
+				fout << data[x]->getname() + "\t";
+				fout << data[x]->gethorsepower() + "\t";
+				fout << data[x]->getprice() + "\t";
+				fout << data[x]->getcylinders() + "\n";
 			}		
 			fout.close();	
 		}
@@ -135,14 +130,11 @@ class database {
 		{
 			if (used > 0)
 			{
-				if (used == 1)
-				{
-					string output = "";
-					output = output + data[index].getname() + " " + data[index].getbrand() + " " + to_string(data[index].gethorsepower()) + "hp ";
-					output = output + to_string(data[index].getcylinders()) + " " + to_string(data[index].getprice());
-					cout << output;
-					cout << "\n";
-				}
+				string output = "";
+				output = output + data[index]->getname() + " " + data[index]->getbrand() + " " + to_string(data[index]->gethorsepower()) + "hp ";
+				output = output + to_string(data[index]->getcylinders()) + " " + to_string(data[index]->getprice());
+				cout << output;
+				cout << "\n";
 			}
 		}
 
@@ -154,8 +146,8 @@ class database {
 				string output = "";
 				for (int x=0; x<used;x++)
 				{
-					output = output + data[x].getname() + " " + data[x].getbrand() + " " + to_string(data[x].gethorsepower()) + "hp ";
-					output = output + to_string(data[x].getcylinders()) + " " + to_string(data[x].getprice());
+					output = output + data[x]->getname() + " " + data[x]->getbrand() + " " + to_string(data[x]->gethorsepower()) + "hp ";
+					output = output + to_string(data[x]->getcylinders()) + " " + to_string(data[x]->getprice());
 					cout << output;
 					cout << "\n";
 				}
@@ -173,7 +165,7 @@ class database {
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].getname() == nme)
+					if (data[x]->getname() == nme)
 					{
 						list_one(x);
 					}
@@ -202,7 +194,7 @@ class database {
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].getcylinders() == num)
+					if (data[x]->getcylinders() == num)
 					{
 						list_one(x);
 					}
@@ -231,7 +223,7 @@ class database {
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].gethorsepower() == num)
+					if (data[x]->gethorsepower() == num)
 					{
 						list_one(x);
 					}
@@ -245,7 +237,7 @@ class database {
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].getbrand() == nme)
+					if (data[x]->getbrand() == nme)
 					{
 						list_one(x);
 					}
@@ -274,7 +266,7 @@ class database {
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{
-					if (data[x].getcylinders() == num)
+					if (data[x]->getcylinders() == num)
 					{
 						list_one(x);
 					}
@@ -292,21 +284,31 @@ class database {
 			getline(cin,name);
 			for (int x = 0; x < used; x++)
 			{
-				if (data[x].getbrand() == brand && data[x].getname() == name)
+				if (data[x]->getbrand() == brand && data[x]->getname() == name)
 				{
 					cout << "Supercar Found. Deleting Supercar...";
 					for (int y = x+1; y < used; y++)
 					{
-						data[y-1].setbrand(data[y].getbrand());
-						data[y-1].setname(data[y].getname());
-						data[y-1].setcylinders(data[y].getcylinders());
-						data[y-1].sethorsepower(data[y].gethorsepower());
-						data[y-1].setprice(data[y].getprice());
+						data[y-1]->setbrand(data[y]->getbrand());
+						data[y-1]->setname(data[y]->getname());
+						data[y-1]->setcylinders(data[y]->getcylinders());
+						data[y-1]->sethorsepower(data[y]->gethorsepower());
+						data[y-1]->setprice(data[y]->getprice());
 					}
 					cout << "Supercar Deleted.\n";
 					used--;
 				}
 			}		
+		}
+
+		int getused()
+		{
+			return used;
+		}
+
+		int getspace()
+		{
+			return space;
 		}
 
 /*
