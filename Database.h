@@ -5,6 +5,7 @@
 #include <cassert>      
 #include "cmpt_error.h" 
 #include "Supercars.h"
+#include <iomanip>
 /*
 This stores all instances of Supercars.h. This is where we should implement our searching and sorting functions
 */
@@ -141,16 +142,20 @@ class database {
 		}
 
 		//Lists every supercar in the array
+		// Make changes so that the when outputted 
 		void list_all() const
 		{
 			if (used > 0)
 			{
+				cout << setw(10) << "brand" << setw(30) << "Name" << setw(30) << "Horsepower" 
+					 << setw(30) << "Cylinders" << setw(30) << "Price";
+				cout << "\n";
 				for (int x=0; x<used;x++)
 				{
-					string output = "";
-					output = output + data[x]->getbrand() + " " + data[x]->getname() + " " + to_string(data[x]->gethorsepower()) + "hp ";
-					output = output + to_string(data[x]->getcylinders()) + " " + to_string(data[x]->getprice());
-					cout << output << "\n";
+					cout << setw(10) << data[x]->getbrand() << setw(30) << data[x]->getname() << setw(30) << to_string(data[x]->gethorsepower()) << "hp"
+						 << setw(30) << to_string(data[x]->getcylinders()) << setw(30) << to_string(data[x]->getprice());
+					cout << "\n";
+
 				}
 			}
 		}
