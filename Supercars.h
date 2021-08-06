@@ -84,46 +84,71 @@ public:
             }
         }
 
+        //Now checking if horsepower is valid:
         stop = -1;
-        printf("Please enter the horsepower: ");
         while (stop == -1) {
+
+            printf("Please enter the horsepower:");
+            //First getting a valid integer inside of horsepower
+            while(!(cin>>horsepower)){
+                cout << "ERROR: A number must be entered: Please re-enter Horsepower\n";
+
+                //Clear input stream
+                cin.clear();
+
+                //Discard previous input - a function to clear one or more characters from the input buffer including next line character
+                cin.ignore(123,'\n');
+            }
             stop = 0 ;
-            cin >> horsepower;
-            cout << "I am here \n";
-            // if bad
-            if ((isdigit(horsepower))==0 ){
-                printf("Please re enter the horsepower: ");
+            // if bad integer
+            if (horsepower < 0 || horsepower > 5000){
+                printf("ERROR: Horsepower cannot be less than zero OR greater than 5000 \n");
                 stop = -1;
             }
-            cout << "I am here 2  \n";
         }
-         cout << "I am here 3 \n";
 
+        //Now checking if price is valid:
         stop = -1;
-        printf("Please enter the price: ");
         while (stop == -1) {
-            stop = 0 ;
-            cin >> price;
+            printf("Please enter the price: ");
+            //First getting a valid integer inside of price
+            while(!(cin>>price)){
+                cout << "ERROR: A number must be entered: Please re-enter Price\n";
 
-            // if bad
+                //Clear input stream
+                cin.clear();
+
+                //Discard previous input - a function to clear one or more characters from the input buffer including next line character
+                cin.ignore(123,'\n');
+            }
+            stop = 0 ;
+            // if bad integer
             if (price < 0){
-                printf("Please re enter the price: ");
+                printf("ERROR: Price cannot be less than zero \n");
                 stop = -1;
             }
         }
 
         stop = -1;
-        printf("Please enter the cylinders: ");
         while (stop == -1) {
-            stop = 0 ;
-            cin >> cylinders;
+            printf("Please enter the Cylinders  : ");
+            //First getting a valid integer inside of Cylinders
+            while(!(cin>>cylinders)){
+                cout << "ERROR: A number must be entered: Please re-enter Cylinders\n";
 
-            // if bad
-            if (cylinders < 0 && cylinders > 16){
-                printf("Please re enter the number of cylinders: ");
+                //Clear input stream
+                cin.clear();
+
+                //Discard previous input - a function to clear one or more characters from the input buffer including next line character
+                cin.ignore(123,'\n');
+            }
+            stop = 0 ;
+            // if bad integer
+            if (cylinders < 0){
+                printf("ERROR: Cylinders cannot be less than 0 ( Please enter 0 cylinders for an electric vehicle) \n");
                 stop = -1;
             }
-        } 
+        }
     }// constructor end
 
     string getname() const {
