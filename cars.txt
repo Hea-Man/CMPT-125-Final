@@ -1,6 +1,5 @@
-19Rimac	Nevera	1914	2000000	0
-Buggati	Chiron	1200	1500000	12
-porche	911	900	300000	8
-ferrari	vroom	800	900000	10
-Ferrari	Laferrari	900	8	9
-12
+19Rimac			Nevera			1914			2000000			0
+Buggati			Chiron			1200			1500000			12
+porche			911			900			300000			8
+ferrari			vroom			800			900000			10
+Ferrari			Laferrari			900			8			9
