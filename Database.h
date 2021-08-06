@@ -105,10 +105,10 @@ class database {
 			fout.open(fname);
 			for (int x = 0; x < used; x++)
 			{
-				fout << data[x]->getbrand() << "\t\t\t";
-				fout << data[x]->getname() << "\t\t\t";
-				fout << data[x]->gethorsepower() << "\t\t\t";
-				fout << data[x]->getprice() << "\t\t\t";
+				fout << data[x]->getbrand() << "\t";
+				fout << data[x]->getname() << "\t";
+				fout << data[x]->gethorsepower() << "\t";
+				fout << data[x]->getprice() << "\t";
 				fout << data[x]->getcylinders() << "\n";
 			}	
 			fout.close();
