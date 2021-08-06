@@ -217,13 +217,12 @@ public:
         while (stop == -1) {
             stop = 0 ;
             // if bad
-            if (horsepower < 0){
-                printf("Please re enter the horsepower: ");
+            if (horsepower < 0 || horsepower > 5000){
+                printf("ERROR: Horsepower cannot be less than zero OR greater than 5000, Please re-enter Horsepower \n");
                 stop = -1;
                 cin >> horsepower;
             }
         }
-
     }
 
     void setprice(int prc) {
@@ -251,7 +250,7 @@ public:
             if (cylinders < 0 && cylinders >16){
                 printf("Please re enter the number of cylinders: ");
                 stop = -1;
-                cin >> price;
+                cin >> cylinders;
             }
         }
 
