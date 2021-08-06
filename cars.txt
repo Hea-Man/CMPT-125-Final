@@ -1,1 +1,2 @@
-Rimac Nevera 1914 2000000 0
+Rimac	Nevera	1914	2000000	0
+Bugatti	Chiron	1479	2900000	16

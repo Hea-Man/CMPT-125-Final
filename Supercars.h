@@ -51,24 +51,7 @@ public:
     supercar(int s)
     {
         int stop = s;
-        printf("Please enter the name of the car");
-        while (stop==-1) {
-            stop = 0;
-            getline(cin,name);
-
-            // if bad 
-            for (int i = 0 ; i < name.size(); i++){
-                if (name[i] == '!' || name[i] == '@' || name[i] == '#' || name[i] == '$'
-                    || name[i] == '\n' || name[i] == '\t'  )
-                    {
-                        printf("Please re enter the name of the car");
-                        stop = -1;
-                    }
-            }
-        }
-
-        stop = -1;
-        printf("Please enter the name of the brand");
+        printf("Please enter the name of the brand: ");
         while (stop == -1) {
             stop = 0;
             getline(cin , brand);
@@ -78,47 +61,64 @@ public:
                 if (brand[i] == '!' || brand[i] == '@' || brand[i] == '#' || brand[i] == '$'
                     || brand[i] == '\n' || brand[i] == '\t'  ) 
                 {
-                    printf("Please re enter the name of the brand");
+                    printf("Please re enter the name of the brand: ");
                     stop = -1;
                 }
             }
         }
 
         stop = -1;
-        printf("Please enter the horsepower");
+        printf("Please enter the name of the car: ");
+        while (stop==-1) {
+            stop = 0;
+            getline(cin,name);
+
+            // if bad 
+            for (int i = 0 ; i < name.size(); i++){
+                if (name[i] == '!' || name[i] == '@' || name[i] == '#' || name[i] == '$'
+                    || name[i] == '\n' || name[i] == '\t'  )
+                    {
+                        printf("Please re enter the name of the car: ");
+                        stop = -1;
+                    }
+            }
+        }
+
+        stop = -1;
+        printf("Please enter the horsepower: ");
         while (stop == -1) {
             stop = 0 ;
             cin >> horsepower;
 
             // if bad
             if (horsepower < 0){
-                printf("Please re enter the horsepower");
+                printf("Please re enter the horsepower: ");
                 stop = -1;
             }
         }
 
         stop = -1;
-        printf("Please enter the price");
+        printf("Please enter the price: ");
         while (stop == -1) {
             stop = 0 ;
             cin >> price;
 
             // if bad
             if (price < 0){
-                printf("Please re enter the price");
+                printf("Please re enter the price: ");
                 stop = -1;
             }
         }
 
         stop = -1;
-        printf("Please enter the cylinders");
+        printf("Please enter the cylinders: ");
         while (stop == -1) {
             stop = 0 ;
             cin >> cylinders;
 
             // if bad
             if (cylinders < 0 && cylinders > 16){
-                printf("Please re enter the Cylinders amount");
+                printf("Please re enter the number of cylinders: ");
                 stop = -1;
             }
         } 
@@ -157,7 +157,7 @@ public:
                 if (name[i] == '!' || name[i] == '@' || name[i] == '#' || name[i] == '$'
                     || name[i] == '\n' || name[i] == '\t'  )
                     {
-                        printf("Please re enter the name of the car");
+                        printf("Please re enter the name of the car: ");
                         stop = -1;
                         getline(cin,name);
                     }
@@ -176,7 +176,7 @@ public:
                 if (brand[i] == '!' || brand[i] == '@' || brand[i] == '#' || brand[i] == '$'
                     || brand[i] == '\n' || brand[i] == '\t'  )
                     {
-                        printf("Please re enter the brand of the car");
+                        printf("Please re enter the brand of the car: ");
                         getline(cin,brand);
                         stop = -1;
                     }
@@ -191,7 +191,7 @@ public:
             stop = 0 ;
             // if bad
             if (horsepower < 0){
-                printf("Please re enter the horsepower");
+                printf("Please re enter the horsepower: ");
                 stop = -1;
                 cin >> horsepower;
             }
@@ -206,7 +206,7 @@ public:
             stop = 0 ;
             // if bad
             if (price < 0){
-                printf("Please re enter the price");
+                printf("Please re enter the price: ");
                 stop = -1;
                 cin >> price;
             }
@@ -222,7 +222,7 @@ public:
             stop = 0 ;
             // if bad
             if (cylinders < 0 && cylinders >16){
-                printf("Please re enter the horsepower");
+                printf("Please re enter the number of cylinders: ");
                 stop = -1;
                 cin >> price;
             }

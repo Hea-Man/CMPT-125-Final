@@ -99,18 +99,20 @@ class database {
 		//Saves the array to a file
 		void save_to_file(const string &fname)
 		{
+			cout << "Saving Data...";
 			string n;
 			fstream fout;
 			fout.open(fname);
 			for (int x = 0; x < used; x++)
 			{
-				fout << data[x]->getbrand() + "\t";
-				fout << data[x]->getname() + "\t";
-				fout << data[x]->gethorsepower() + "\t";
-				fout << data[x]->getprice() + "\t";
-				fout << data[x]->getcylinders() + "\n";
-			}		
-			fout.close();	
+				fout << data[x]->getbrand() << "\t";
+				fout << data[x]->getname() << "\t";
+				fout << data[x]->gethorsepower() << "\t";
+				fout << data[x]->getprice() << "\t";
+				fout << data[x]->getcylinders() << "\n";
+			}	
+			fout.close();
+			cout << "Data Saved\n";	
 		}
 
 		//destructor for database.h
@@ -131,10 +133,10 @@ class database {
 			if (used > 0)
 			{
 				string output = "";
-				output = output + data[index]->getname() + " " + data[index]->getbrand() + " " + to_string(data[index]->gethorsepower()) + "hp ";
+				output = output + data[index]->getbrand() + " " + data[index]->getname() + " " + to_string(data[index]->gethorsepower()) + "hp ";
 				output = output + to_string(data[index]->getcylinders()) + " " + to_string(data[index]->getprice());
 				cout << output;
-				cout << "\n";
+				cout << "\n\n";
 			}
 		}
 
@@ -143,13 +145,12 @@ class database {
 		{
 			if (used > 0)
 			{
-				string output = "";
 				for (int x=0; x<used;x++)
 				{
-					output = output + data[x]->getname() + " " + data[x]->getbrand() + " " + to_string(data[x]->gethorsepower()) + "hp ";
+					string output = "";
+					output = output + data[x]->getbrand() + " " + data[x]->getname() + " " + to_string(data[x]->gethorsepower()) + "hp ";
 					output = output + to_string(data[x]->getcylinders()) + " " + to_string(data[x]->getprice());
-					cout << output;
-					cout << "\n";
+					cout << output << "\n";
 				}
 			}
 		}
@@ -233,7 +234,8 @@ class database {
 			if (type == "b")
 			{
 				string nme;
-				cout << "Enter the brand of the supercar: ";
+				cout << "Enter the brand of the supercar you wish to find: ";
+				getline(cin,nme);
 				cout << "\n";
 				for (int x = 0; x < used; x++)
 				{

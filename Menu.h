@@ -72,7 +72,7 @@ class Menu
         void list(database &d)
         {
             cout << "List all Supercars\n";
-            cout << "--------------------------------------------------------------------------\n\n";
+            cout << "--------------------------------------------------------------------------\n";
             d.list_all();
         }
 
@@ -80,7 +80,6 @@ class Menu
         {
             int stop = -1;
             database d("cars.txt");
-            cout << d.getused() << " " << d.getspace() << "\n";
             string message;
             stop = -1;
             int first = 0;
@@ -96,15 +95,15 @@ class Menu
                 cout << "To choose an option, please type the letter in the parenthesis corresponding ";
                 cout << "to the choice you would like. \n\n";
                 cout << "(A)dd a Supercar.\n";
-                cout << "(F)ind a Supercar.\n";
                 cout << "(D)elete a Supercar.\n";
+                cout << "(F)ind a Supercar.\n";
                 cout << "(L)ist all Supercars.\n";
                 cout << "(Q)uit application.\n";
                 getline(cin,message);
                 cout << "\n";
                 
                 for (char &c : message)
-                {
+                {   
                     c = tolower(c);
                 }
                 if (message == "a")
@@ -125,15 +124,14 @@ class Menu
                 }
                 else if (message == "q")
                 {
+                    d.save_to_file("cars.txt");
                     stop++;
-                    cout << "Goodbye\n\n";
                 }
                 else
                 {
                     cout << "I did not understand your answer. ";
                 }
             }
-            d.save_to_file("cars.txt");
         }
         ~Menu(){}
 };
