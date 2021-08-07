@@ -25,7 +25,6 @@ class Menu
             int a = -1;
             supercar *s = new supercar(a);
             d.add_supercar(s);
-            delete s;
         }
         void find(database &d)
         {

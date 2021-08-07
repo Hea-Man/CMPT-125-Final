@@ -1,6 +1,5 @@
-,,0,0,0
-,,0,0,0
-,,0,0,0
-,,0,0,0
-,,0,0,0
-,,0,0,0
+Rimac,Nivera,1914,2000000,0
+Mclaren,Senna,789,1400000,8
+Tesla,Model S Plaid,1000,150000,0
+Bugatti,Chiron,1479,2900000,16
+Koeniggsegg,Agera RS,1361,10000000,8
