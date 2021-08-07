@@ -52,45 +52,58 @@ class database {
 			int power;
 			int price;
 			int cylinders;
-			string n;
-			fstream fin;
+			string input;
 			int val = 0;
+			char c;
+			fstream fin;
 			fin.open(fname);
 			if (fin.is_open())
 			{
-				while(fin.eof() != true)
+				while(fin.get(c))
 				{
-					fin >> n;
-					if (val == 0)
+					if (c == ',' || c == '\n')
 					{
-						brand = n;
-						val++;
-					}
-					else if (val == 1)
-					{
-						name = n;
-						val++;
-					}
-					else if (val == 2)
-					{
-						power = stoi(n);
-						val++;
-					}
-					else if (val == 3)
-					{
-						price = stoi(n);
-						val++;
+						if (val == 0)
+						{
+							brand = input;
+							val++;
+							input = "";
+						}
+						else if (val == 1)
+						{
+							name = input;
+							val++;
+							input = "";
+						}
+						else if (val == 2)
+						{
+							power = stoi(input);
+							val++;
+							input = "";
+						}
+						else if (val == 3)
+						{
+							price = stoi(input);
+							val++;
+							input = "";
+						}
+						else
+						{
+							cylinders = stoi(input);
+							val++;
+							input = "";
+						}
+						if (val == 5)
+						{
+							supercar *s = new supercar (brand, name, power, price, cylinders);
+							add_supercar(s);
+							val = 0;
+							input = "";
+						}
 					}
 					else
 					{
-						cylinders = stoi(n);
-						val++;
-					}
-					if (val == 5)
-					{
-						supercar *s = new supercar (brand, name, power, price, cylinders);
-						add_supercar(s);
-						val = 0;
+						input = input + c;
 					}
 			 	}
 			}
@@ -106,10 +119,10 @@ class database {
 			fout.open(fname);
 			for (int x = 0; x < used; x++)
 			{
-				fout << data[x]->getbrand() << "\t";
-				fout << data[x]->getname() << "\t";
-				fout << data[x]->gethorsepower() << "\t";
-				fout << data[x]->getprice() << "\t";
+				fout << data[x]->getbrand() << ", ";
+				fout << data[x]->getname() << ", ";
+				fout << data[x]->gethorsepower() << ", ";
+				fout << data[x]->getprice() << ", ";
 				fout << data[x]->getcylinders() << "\n";
 			}	
 			fout.close();

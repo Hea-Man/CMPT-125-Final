@@ -1,4 +1,6 @@
-ferrari	Laferrari	900	1500000	12
-Rimac	Nivera	1914	2000000	0
-Porsche	911	900	300000	8
-Mclaren	Senna	789	1400000	8
+ferrari,     Laferrari, 900, 1500000, 12
+Rimac,     Nivera, 1914, 2000000, 0
+Porsche,     911, 900, 300000, 8
+Mclaren,     Senna, 789, 1400000, 8
+Tesla,   Model S Plaid, 1000, 150000, 0
+Rimac,  Concept One, 1224, 2000000, 0

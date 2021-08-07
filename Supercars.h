@@ -88,10 +88,10 @@ public:
         stop = -1;
         while (stop == -1) {
 
-            printf("Please enter the horsepower:");
+            printf("Please enter the horsepower: ");
             //First getting a valid integer inside of horsepower
             while(!(cin>>horsepower)){
-                cout << "ERROR: A number must be entered: Please re-enter Horsepower\n";
+                cout << "ERROR: A number must be entered: Please re-enter Horsepower: \n";
 
                 //Clear input stream
                 cin.clear();
@@ -102,7 +102,7 @@ public:
             stop = 0 ;
             // if bad integer
             if (horsepower < 0 || horsepower > 5000){
-                printf("ERROR: Horsepower cannot be less than zero OR greater than 5000 \n");
+                printf("ERROR: Horsepower cannot be less than zero OR greater than 5000: \n");
                 stop = -1;
             }
         }
@@ -113,7 +113,7 @@ public:
             printf("Please enter the price: ");
             //First getting a valid integer inside of price
             while(!(cin>>price)){
-                cout << "ERROR: A number must be entered: Please re-enter Price\n";
+                cout << "ERROR: A number must be entered: Please re-enter Price: \n";
 
                 //Clear input stream
                 cin.clear();
@@ -124,17 +124,17 @@ public:
             stop = 0 ;
             // if bad integer
             if (price < 0){
-                printf("ERROR: Price cannot be less than zero \n");
+                printf("ERROR: Price cannot be less than zero: \n");
                 stop = -1;
             }
         }
 
         stop = -1;
         while (stop == -1) {
-            printf("Please enter the Cylinders  : ");
+            printf("Please enter the Cylinders: ");
             //First getting a valid integer inside of Cylinders
             while(!(cin>>cylinders)){
-                cout << "ERROR: A number must be entered: Please re-enter Cylinders\n";
+                cout << "ERROR: A number must be entered: Please re-enter Cylinders: \n";
 
                 //Clear input stream
                 cin.clear();
@@ -145,7 +145,7 @@ public:
             stop = 0 ;
             // if bad integer
             if (cylinders < 0){
-                printf("ERROR: Cylinders cannot be less than 0 ( Please enter 0 cylinders for an electric vehicle) \n");
+                printf("ERROR: Cylinders cannot be less than 0 ( Please enter 0 cylinders for an electric vehicle): \n");
                 stop = -1;
             }
         }
