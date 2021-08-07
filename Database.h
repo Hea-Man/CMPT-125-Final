@@ -114,15 +114,16 @@ class database {
 		void save_to_file(const string &fname)
 		{
 			cout << "Saving Data...";
-			string n;
+			FILE *fp = fopen("cars.txt", "w");
+			fclose(fp);
 			fstream fout;
 			fout.open(fname);
 			for (int x = 0; x < used; x++)
 			{
-				fout << data[x]->getbrand() << ", ";
-				fout << data[x]->getname() << ", ";
-				fout << data[x]->gethorsepower() << ", ";
-				fout << data[x]->getprice() << ", ";
+				fout << data[x]->getbrand() << ",";
+				fout << data[x]->getname() << ",";
+				fout << data[x]->gethorsepower() << ",";
+				fout << data[x]->getprice() << ",";
 				fout << data[x]->getcylinders() << "\n";
 			}	
 			fout.close();
