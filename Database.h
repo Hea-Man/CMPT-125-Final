@@ -161,21 +161,54 @@ class database {
 		}
 		
 		//Finds a car in the array
+		// One type of search should print all the records where the typed in string occurs as a substring in the appropriate field
 		int find_car(const string &type) const
 		{
 			if (type == "n")
 			{
-				string nme;
-				cout << "Enter the name of the supercar you wish to find: ";
-				getline(cin,nme);
-				cout << "\n";
-				for (int x = 0; x < used; x++)
-				{
-					if (data[x]->getname() == nme)
+				cout<<"Do you want to Find all records where the input occurs as a substring as well ?\n";
+				cout<<"Please type (Y)es or (N)o:    ";
+				char input;
+				cin >> input;
+				input = tolower(input);
+				cout <<"test1\n";
+				if (input == 'n'){
+					string nme;
+					cout << "Enter the name of the supercar you wish to find: ";
+					cin.clear();
+					cin.ignore(123,'\n');
+					getline(cin,nme);
+					cout << "\n";
+					for (int x = 0; x < used; x++)
 					{
-						list_one(x);
+						if (data[x]->getname() == nme)
+						{
+							list_one(x);
+						}
 					}
 				}
+				else if (input == 'y'){
+					cout <<"test 2\n";
+					string substr;
+					cout << "Enter the substring of the Name you wish to find: ";
+					cin.clear();
+					cin.ignore(123,'\n');
+					getline(cin,substr);
+					cout <<"\n";
+					// so this find() function inside of the cstring library returns the position if substr found other 
+					//wise it returns a -1 value 
+					
+					for (int x = 0; x < used; x++)
+					{
+						int position = (data[x]->getname()).find(substr);
+						if (position != -1) // if found print it
+						{
+							list_one(x);
+						}
+					}
+				}
+				cout <<"test3\n";
+				
 			}
 
 			if (type == "p")
@@ -238,15 +271,42 @@ class database {
 
 			if (type == "b")
 			{
-				string nme;
-				cout << "Enter the brand of the supercar you wish to find: ";
-				getline(cin,nme);
-				cout << "\n";
-				for (int x = 0; x < used; x++)
-				{
-					if (data[x]->getbrand() == nme)
+				cout<<"Do you want to Find all records where the input occurs as a substring as well ?\n";
+				cout<<"Please type (Y)es or (N)o:    ";
+				char input;
+				cin >> input;
+				input = tolower(input);
+				if (input == 'n'){
+					string nme;
+					cout << "Enter the brand of the supercar you wish to find: ";
+					cin.clear();
+					cin.ignore(123,'\n');
+					getline(cin,nme);
+					cout << "\n";
+					for (int x = 0; x < used; x++)
 					{
-						list_one(x);
+						if (data[x]->getbrand() == nme)
+						{
+							list_one(x);
+						}
+					}
+				}
+				else if (input == 'y'){
+					string substr;
+					cout << "Enter the substring of the brand  you wish to find: ";
+					cin.clear();
+					cin.ignore(123,'\n');
+					getline(cin,substr);
+					cout <<"\n";
+					// so this find() function inside of the string library returns the position if substr found other 
+					//wise it returns a -1 value 
+					for (int x = 0; x < used; x++)
+					{
+						int position = (data[x]->getbrand()).find(substr);
+						if (position != -1) // if found print it
+						{
+							list_one(x);
+						}
 					}
 				}
 			}
@@ -319,6 +379,8 @@ class database {
 				}
 			}		
 		}
+
+		void sort(){}
 
 		int getused()
 		{

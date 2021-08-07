@@ -1,5 +1,4 @@
-Rimac	Nevera	1914	2000000	0
+ferrari	Laferrari	900	1500000	12
+Rimac	Nivera	1914	2000000	0
 Porsche	911	900	300000	8
-Ferrari	SF90	1000	900000	8
-Lamborghini	Urus	641	200000	8
-McLaren	Senna	789	1400000	8
+Mclaren	Senna	789	1400000	8
