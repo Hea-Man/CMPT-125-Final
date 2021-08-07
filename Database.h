@@ -350,11 +350,14 @@ class database {
 			getline(cin,brand);
 			cout << "Enter the name of the super car you would like to remove: ";
 			getline(cin,name);
+			cout << "\n";
+			bool deleted = false;
 			for (int x = 0; x < used; x++)
 			{
 				if (data[x]->getbrand() == brand && data[x]->getname() == name)
 				{
-					cout << "Supercar Found. Deleting Supercar";
+					deleted = true;
+					cout << "Supercar Found.   ";
 					if (x == (used - 1))
 					{
 						data[x]->setbrand("");
@@ -377,6 +380,9 @@ class database {
 					cout << "Supercar Deleted.\n";
 					used--;
 				}
+			}
+			if (deleted == false){
+				cout << "Super car you entered was not found in the data base, please try again \n \n";
 			}		
 		}
 
