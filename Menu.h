@@ -76,6 +76,38 @@ class Menu
             d.list_all();
         }
 
+        void sort(database &d)
+        {
+            string message;
+            int stop = -1;
+            while (stop < 0)
+            {
+                cout << "How do you want to sort your Supercar Data base? \n";
+                cout << "---------------------------------------------------\n\n";
+                cout << "List all fields in (A)lphabetical or Reverse Alphabetical order\n ";
+                cout << "List all fields in Ascending or (D)escending order\n";
+                getline(cin,message);
+                cout << "\n";
+                for (char &c : message)
+                {
+                    c = tolower(c);
+                }
+                if (message == "a" || message == "d" )
+                {
+                    d.sort_car(message);
+                }
+                else if (message == "r")
+                {
+                    stop++;
+                }
+                else
+                {
+                    cout << "I did not understand your answer. ";
+                }
+
+            }
+        }
+
         void main_menu()
         {
             int stop = -1;

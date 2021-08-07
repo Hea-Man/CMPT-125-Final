@@ -399,7 +399,39 @@ class database {
 			}		
 		}
 
-		void sort(){}
+		//So we need a sort method which will sort with respect to all fields 
+        void sort_car(const string& type)
+        {
+
+            if (type == "a")
+            {
+                char ascending;
+                cout << "Do you want to sort your fields in (A)scending order or (D)escending order?\n";
+                cin >> ascending;
+                ascending = tolower(ascending);
+                //Ascending
+                if (ascending == 'a') {
+                    cout << "Please select the field which you would like to sort in Ascending Order\n";
+                    cout << "(N)ame or (B)rand";
+                    char field;
+                    cin >> field;
+                    field = tolower(field);
+                    //Name
+                    if (field == 'n') {
+                        for (int x = 0; x < used; x++)
+                        {
+                            int intializer = 0;
+                            for ( int z = intializer ; z < used ; z++){
+
+
+
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
 
 		int getused()
 		{
