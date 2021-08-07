@@ -8,6 +8,7 @@
 #include <iomanip>
 /*
 This stores all instances of Supercars.h. This is where we should implement our searching and sorting functions
+DOES NOT SUPPORT SPACES IN CAR NAMES. WE GOTTA FIX THIS SOMEHOW.
 */
 using namespace std;
 
@@ -46,7 +47,6 @@ class database {
 			space = 10;
 			used = 0;
 			data = new supercar*[space];
-			cout << fname << "\n";
 			string brand;
 			string name;
 			int power;
@@ -147,8 +147,8 @@ class database {
 		{
 			if (used > 0)
 			{
-				cout << setw(10) << "brand" << setw(30) << "Name" << setw(30) << "Horsepower" 
-					 << setw(30) << "Cylinders" << setw(30) << "Price";
+				cout << setw(10) << "BRAND:" << setw(30) << "NAME:" << setw(30) << "HORSEPOWER:" 
+					 << setw(30) << "CYLINDERS:" << setw(30) << "PRICE:";
 				cout << "\n";
 				for (int x=0; x<used;x++)
 				{

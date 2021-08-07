@@ -1,5 +1,5 @@
-19Rimac			Nevera			1914			2000000			0
-Buggati			Chiron			1200			1500000			12
-porche			911			900			300000			8
-ferrari			vroom			800			900000			10
-Ferrari			Laferrari			900			8			9
+Rimac	Nevera	1914	2000000	0
+Porsche	911	900	300000	8
+Ferrari	SF90	1000	900000	8
+Lamborghini	Urus	641	200000	8
+McLaren	Senna	789	1400000	8
