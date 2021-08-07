@@ -99,6 +99,7 @@ class database {
 							add_supercar(s);
 							val = 0;
 							input = "";
+							delete s;
 						}
 					}
 					else
