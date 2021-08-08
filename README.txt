@@ -9,18 +9,16 @@ Ozafa Yousuf Mahmood; 301445050; oym@sfu.ca
 
 -----------
 
-We haven't done shit :)
-Seems pretty easy though
-I hope its easy cause there is lots of shit to do
+All features have been implemented
 
 Known Bugs
 ----------
 
-Program doesn't work, cause havent done shit :)
+- After adding a supercar, it goes back to the main menu and then displays,
+  I don't understand your answer. Then the main menu reloads and then the user
+  can continue what they want to do
 
 
 Extra Features
 --------------
 
-You think we have time for this bitch?
-OFC NOT HAHA

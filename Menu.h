@@ -18,6 +18,8 @@ class Menu
 {
     public:
         Menu(){}
+        
+        //This is a command that will direct the add supercar function
         void add(database &d)
         {
             cout << "Add a Supercar\n";
@@ -27,6 +29,7 @@ class Menu
             d.add_supercar(s);
         }
 
+        //This is a command that directs the find menu of the class
         void find(database &d)
         {
             string message;
@@ -63,6 +66,7 @@ class Menu
             }
         }
 
+        //This directs the remove menu to remove a supercar
         void remove(database &d)
         {
             cout << "Remove a Supercar\n";
@@ -70,6 +74,7 @@ class Menu
             d.delete_supercar();
         }
 
+        //This function calls another function to list all the supercars in the database
         void list(database &d)
         {
             cout << "List all Supercars\n";
@@ -77,6 +82,7 @@ class Menu
             d.list_all();
         }
 
+        //This function directs the user through the sorting algorithms for the cars
         void sort(database &d)
         {
             string message;
@@ -135,6 +141,8 @@ class Menu
             }
         }
 
+        //The function that controls and calls everything. This is the only function that should be
+        //called to make the database work
         void main_menu()
         {
             int stop = -1;
@@ -182,14 +190,14 @@ class Menu
                 {
                     list(d);
                 }
+                else if (message == "s")
+                {
+                    sort(d);
+                }
                 else if (message == "q")
                 {
                     d.save_to_file("cars.txt");
                     stop++;
-                }
-                else if (message == "s")
-                {
-                    sort(d);
                 }
                 else
                 {
