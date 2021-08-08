@@ -92,31 +92,46 @@ class Menu
                 {
                     c = tolower(c);
                 }
-                if (message == "b" || message == "n" )
+                if (message == "n" )
                 {
-                    d.sort_car(message);
-                    stop++;
+                    //d.string_compare_n();
+                }
+                else if (message == "b")
+                {
+                    //d.string_compare_b();
                 }
                 else if (message == "h")
                 {
                     d.int_compare_h();
-                    stop++;
                 }
                 else if (message == "p")
                 {
                     d.int_compare_p();
-                    stop++;
                 }
                 else if (message == "c")
                 {
                     d.int_compare_c();
-                    stop++;
                 }
                 else
                 {
                     cout << "I did not understand your answer. ";
                 }
-
+                cout << "Would you like to reverse the order of the array? (Y)es or (N)o?\n";
+                getline(cin,message);
+                cout << "\n";
+                for (char &c : message)
+                {
+                    c = tolower(c);
+                }
+                if (message == "y")
+                {
+                    d.reverse();
+                    stop++;
+                }
+                else
+                {
+                    stop++;
+                }
             }
         }
 

@@ -179,7 +179,7 @@ class database {
 		}
 		
 		//Finds a car in the array
-		// One type of search should print all the records where the typed in string occurs as a substring in the appropriate field
+		//One type of search should print all the records where the typed in string occurs as a substring in the appropriate field
 		int find_car(const string &type) const
 		{
 			if (type == "n")
@@ -552,6 +552,20 @@ class database {
 					temp[0] = data[x];
 					data[x] = data[min];
 					data[min] = temp[0];
+				}
+			}
+		}
+
+		void reverse()
+		{
+			if (used > 1)
+			{
+				for (int x = 0; x < (used/2); x++)
+				{
+					supercar* temp[1];
+					temp[0] = data[x];
+					data[x] = data[used-1-x];
+					data[used-1-x] = temp[0];
 				}
 			}
 		}
