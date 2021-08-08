@@ -164,8 +164,10 @@ class database {
 		
 		//Finds a car in the array
 		//One type of search should print all the records where the typed in string occurs as a substring in the appropriate field
+		//One type of search should print all the records where the typed in int range is used to search for appropriate fields
 		int find_car(const string &type) const
 		{
+			//Finding via name
 			if (type == "n")
 			{
 				cout<<"Do you want to Find all records where the input occurs as a substring as well ?\n";
@@ -173,7 +175,6 @@ class database {
 				char input;
 				cin >> input;
 				input = tolower(input);
-				cout <<"test1\n";
 				if (input == 'n'){
 					string nme;
 					cout << "Enter the name of the supercar you wish to find: ";
@@ -212,64 +213,7 @@ class database {
 				
 			}
 
-			if (type == "p")
-			{
-				string nme;
-				int num;
-				cout << "Enter the price of the supercar: ";
-				int stop = -1;
-				while (stop < 0)
-				{
-					getline(cin,nme);
-					num = stoi(nme);
-					if (num < 0)
-					{
-						cout << "That number is invalid. Please enter a valid number: ";
-					}
-					else
-					{
-						stop++;
-					}
-				}
-				cout << "\n";
-				for (int x = 0; x < used; x++)
-				{
-					if (data[x]->getcylinders() == num)
-					{
-						list_one(x);
-					}
-				}
-			}
-
-			if (type == "h")
-			{
-				string nme;
-				int num;
-				cout << "Enter the horsepower the supercar has: ";
-				int stop = -1;
-				while (stop < 0)
-				{
-					getline(cin,nme);
-					num = stoi(nme);
-					if (num < 0)
-					{
-						cout << "That number is invalid. Please enter a valid number: ";
-					}
-					else
-					{
-						stop++;
-					}
-				}
-				cout << "\n";
-				for (int x = 0; x < used; x++)
-				{
-					if (data[x]->gethorsepower() == num)
-					{
-						list_one(x);
-					}
-				}
-			}
-
+			//Finding via brand
 			if (type == "b")
 			{
 				cout<<"Do you want to Find all records where the input occurs as a substring as well ?\n";
@@ -312,32 +256,231 @@ class database {
 				}
 			}
 
-			if (type == "c")
+			//Finding Via price
+			if (type == "p")
 			{
-				string nme;
-				int num;
-				cout << "Enter the number of cylinders the supercar has: ";
-				int stop = -1;
-				while (stop < 0)
-				{
-					getline(cin,nme);
-					num = stoi(nme);
-					if (num < 0 || num >= used)
+
+				cout<<"Do you want to Find all records where the input occurs as an exactl value Or a range? ?\n";
+				cout<<"Please type \n(E) for Exact value \n(R) For all values inside of a Range:    ";
+				char input;
+				cin >> input;
+				input = tolower(input);
+
+				//Finding all fields with the exact input price
+				if (input == 'e'){
+					int num;
+					cout << "Enter the price of the supercar: ";
+					int stop = -1;
+					while (stop < 0)
 					{
-						cout << "That number is invalid. Please enter a valid number: ";
+						cin >> num;
+						if (num < 0)
+						{
+							cout << "That number is invalid. Please enter a valid number: ";
+						}
+						else
+						{
+							stop++;
+						}
 					}
-					else
+					cout << "\n";
+					for (int x = 0; x < used; x++)
 					{
-						stop++;
+						if (data[x]->getprice() == num)
+						{
+							list_one(x);
+						}
 					}
 				}
-				cout << "\n";
-				for (int x = 0; x < used; x++)
+				//Finding all fields within a certain price range
+				else if (input == 'r')
 				{
-					if (data[x]->getcylinders() == num)
+					int lowerprice;
+					int upperprice;
+					int stop = -1;
+					while (stop < 0)
 					{
-						list_one(x);
+						cout << "Please enter the Lower limit of the price: ";
+						cin >> lowerprice;
+						cout <<"\nPlease enter the upper limit of the price: ";
+						cin >> upperprice;
+
+						//Checking lowerlimit and upper limit
+						if (lowerprice < 0 || upperprice < 0 )
+						{
+							cout << "That price range is invalid. Please enter a valid number: ";
+						}
+						else if (lowerprice > upperprice)
+						{
+							cout<< " Lower limit can't be greater than upper limit";
+						}
+						else
+						{
+							stop++;
+						}
 					}
+					cout << "\n";
+					for (int x = 0; x < used; x++)
+					{
+						if (data[x]->getprice() >= lowerprice && data[x]->getprice() <= upperprice)
+						{
+							list_one(x);
+						}
+					}
+				}
+				//If user doesn't type E Or R
+				else {
+					cout << "Invalid answer Please try again \n";
+				}
+			}
+
+			//Finding Via horsepower
+			if (type == "h")
+			{
+				cout<<"Do you want to Find all records where the input occurs as an exactl value Or a range? ?\n";
+				cout<<"Please type \n(E) for Exact value \n(R) For all values inside of a Range:    ";
+				char input;
+				cin >> input;
+				input = tolower(input);
+
+				//Finding all fields with the exact input price
+				if (input == 'e'){
+					int num;
+					cout << "Enter the horsepower the supercar has: ";
+					int stop = -1;
+					while (stop < 0)
+					{
+						cin >> num;
+						if (num < 0)
+						{
+							cout << "That number is invalid. Please enter a valid number: ";
+						}
+						else
+						{
+							stop++;
+						}
+					}
+					cout << "\n";
+					for (int x = 0; x < used; x++)
+					{
+						if (data[x]->gethorsepower() == num)
+						{
+							list_one(x);
+						}
+					}
+				}
+				//Finding all fields within a certain Horsepower range
+				else if (input == 'r')
+				{
+					int lowerhp;
+					int upperhp;
+					int stop = -1;
+					while (stop < 0)
+					{
+						cout << "Please enter the Lower limit of the Horsepower: ";
+						cin >> lowerhp;
+						cout <<"\nPlease enter the upper limit of the Horsepower: ";
+						cin >> upperhp;
+						if (lowerhp < 0 || upperhp < 0 )
+						{
+							cout << "That horsepower range is invalid. Please enter a valid number: ";
+						}
+						else if (lowerhp > upperhp)
+						{
+							cout<< " Lower limit can't be greater than upper limit";
+						}
+						else
+						{
+							stop++;
+						}
+					}
+					cout << "\n";
+					for (int x = 0; x < used; x++)
+					{
+						if (data[x]->gethorsepower() >= lowerhp && data[x]->gethorsepower() <= upperhp)
+						{
+							list_one(x);
+						}
+					}
+				}
+				//If user doesn't type E Or R
+				else {
+					cout << "Invalid answer Please try again \n";
+				}
+			}
+			//Finding via cylinders
+			if (type == "c")
+			{
+				cout<<"Do you want to Find all records where the input occurs as an exactl value Or a range? ?\n";
+				cout<<"Please type \n(E) for Exact value \n(R) For all values inside of a Range:    ";
+				char input;
+				cin >> input;
+				input = tolower(input);
+
+				//Finding all fields with the exact input cylinders
+				if (input == 'e'){
+					int num;
+					cout << "Enter the number of cylinders the supercar has: ";
+					int stop = -1;
+					while (stop < 0)
+					{
+						cin >> num;
+						if (num < 0 )
+						{
+							cout << "That number is invalid. Please enter a valid number: ";
+						}
+						else
+						{
+							stop++;
+						}
+					}
+					cout << "\n";
+					for (int x = 0; x < used; x++)
+					{
+						if (data[x]->getcylinders() == num)
+						{
+							list_one(x);
+						}
+					}
+				}
+
+				//Finding all fields within a certain Horsepower range
+				else if (input == 'r')
+				{
+					int lowercyl;
+					int uppercyl;
+					int stop = -1;
+					while (stop < 0)
+					{
+						cout << "Please enter the Lower limit of the Cylinders: ";
+						cin >> lowercyl;
+						cout <<"\nPlease enter the upper limit of the Cylinders: ";
+						cin >> uppercyl;
+						if (lowercyl < 0 || uppercyl < 0 )
+						{
+							cout << "That Cylinder range is invalid. Please enter a valid number: ";
+						}
+						else if (lowercyl > uppercyl)
+						{
+							cout<< " Lower limit can't be greater than upper limit";
+						}
+						else
+						{
+							stop++;
+						}
+					}
+					cout << "\n";
+					for (int x = 0; x < used; x++)
+					{
+						if (data[x]->getcylinders() >= lowercyl && data[x]->getcylinders() <= uppercyl)
+						{
+							list_one(x);
+						}
+					}
+				}
+				//If user doesn't type E Or R
+				else {
+					cout << "Invalid answer Please try again \n";
 				}
 			}
 			return 0;
@@ -441,7 +584,7 @@ class database {
 				data[small] = temp[0];
 			}
         }
-		//Function to Sort data base wrt to the Horsepower of the supercar
+		//Function to Sort data base wrt to the Horsepower of the supercar (increasing)
 		void int_compare_h()
 		{
 			int min;
@@ -464,7 +607,7 @@ class database {
 				}
 			}
 		}
-		//Function to Sort data base wrt to the Price of the supercar
+		//Function to Sort data base wrt to the Price of the supercar (increasing)
 		void int_compare_p()
 		{
 			int min;
@@ -487,7 +630,7 @@ class database {
 				}
 			}
 		}
-		//Function to Sort data base wrt to the Cost of the supercar
+		//Function to Sort data base wrt to the Cylinders of the supercar (increasing)
 		void int_compare_c()
 		{
 			int min;
