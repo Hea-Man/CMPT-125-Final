@@ -1,4 +1,7 @@
+Rimac,Concept One,1224,2000000,0
+Ferrari,LaFerrari,963,1500000,12
+Tesla,Model 3 Performance,470,60000,0
+Tesla,Model S Plaid,1000,150000,0
+Tesla,Model X Plaid,1000,170000,0
 Rimac,Nevera,1914,2000000,0
 McLaren,P1,903,2000000,8
-Ferrari,LaFerrari,963,1500000,12
-Tesla,Model S Plaid,1000,150000,0

@@ -404,87 +404,57 @@ class database {
 			}		
 		}
 
-		//So we need a sort method which will sort with respect to all fields 
-        void sort_car(const string& type)
+ 		void string_compare_n()
         {
+			cout << " Heloooooooo ? inside name ";
+			int small;
 
-            if (type == "1")
-            {
-                char ascending;
-                cout << "Do you want to sort your fields in (A)scending order or (D)escending order?\n";
-                cin >> ascending;
-                ascending = tolower(ascending);
-                //Ascending
-                if (ascending == 'a') {
-                    cout << "Please select the field which you would like to sort in Ascending Order\n";
-                    cout << "(N)ame or (B)rand";
-					cin.clear();
-					cin.ignore(123,'\n');
-                    string field;
-                    cin >> field;
-                    for (char &c:field){
-						c = tolower(c);
+			for (int i = 0 ; i < (used-1) ; i ++)
+			{
+				small = i;
+				//Every j loop check in the whole array the value of j and small - assign small accordingly
+				for (int j= i+1 ; j < used ; j++)
+				{
+					//if value at j is less than value at small , then store index j at small 
+					//at the end of this loop the smallest value's index will be in small
+					if (data[j]->getname() < data[small]->getname())
+					{
+						small = j;
 					}
-					string temp;
-                    //Name
-                    if (field == "n") {
+				}
+				// Now we do the swap with the smallest value and the i index
+				//shallow copying the superclass object at index i to temp
+				supercar* temp[1];
+				temp[0] = data[i];
+				data[i] = data[small];
+				data[small] = temp[0];
+			}
+        }
 
+		void string_compare_b()
+        {
+			int small;
 
-                        /* for (int x = 0; x < used; x++)
-                        {
-							// To sort in Alphabetical order
-                            for ( int z = x+1 ; z < used ; ++z){
-								if(data[x]->getname() > data[z]->getname()){
-									
-
-									// We don't want to be swapping here lets try to figure out the minimum value 
-									temp = data[x]->getname();
-									data[x]->getname() = data[z]->getname();
-									data[z]->getname() = temp;
-								}
-                            }
-
-							// The x index is in correct location now so 
-
-                        } */
-
-
-						//Or Just make it based on a selection sorting algo that checks all elements and puts the smallest in index 0
-						// and then moves onto the next index
-
-						int i , j , small ;
-						/* string nametemp,brandtemp;
-						int horsepowertemp , cylinderstemp, pricetemp; */
-						supercar temp("unknown", "unknown1122", 1 , 1 ,1);
-
-						cout << temp.getname();
-						
-						for ( i = 0 ; i < used-1 ; i ++) {
-							small = i;
-							//Every j loop check in the whole array the value of j and small - assign small accordingly
-							for ( j= i+1 ; j < used ; j++){
-								//if value at j is less than value at small , then store index j at small 
-								//at the end of this loop the smallest value's index will be in small
-								if (data[j]->getname() < data[small]->getname()) {
-									small = j;
-								}
-							}
-							// Now we do the swap with the smallest value and the i index
-							
-							
-							//shallow copying the superclass object at index i to temp
-							temp = *data[i];
-							cout << " \n";;
-							//well its working so like woo - this on paper is sorting our data base
-							cout<< temp.getbrand() << "\n " << temp.getname() << "\n" << temp.gethorsepower() << "\n" << temp.getcylinders() << "\n"; 
-							data[i] = data[small];
-							*data[small] = temp;
-
-							cout << "what its being swapped with : " <<data[i]->getbrand() << "   " << data[i]->getname() ;
-						}  
-                    }
-                }
-            }
+			for (int i = 0 ; i < (used-1) ; i ++) 
+			{
+				small = i;
+				//Every j loop check in the whole array the value of j and small - assign small accordingly
+				for (int j= i+1 ; j < used ; j++)
+				{
+					//if value at j is less than value at small , then store index j at small 
+					//at the end of this loop the smallest value's index will be in small
+					if (data[j]->getbrand() < data[small]->getbrand()) 
+					{
+						small = j;
+					}
+				}
+				// Now we do the swap with the smallest value and the i index
+				//shallow copying the superclass object at index i to temp
+				supercar* temp[1];
+				temp[0] = data[i];
+				data[i] = data[small];
+				data[small] = temp[0];
+			}
         }
 
 		void int_compare_h()

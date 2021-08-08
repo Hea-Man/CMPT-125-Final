@@ -94,11 +94,11 @@ class Menu
                 }
                 if (message == "n" )
                 {
-                    //d.string_compare_n();
+                    d.string_compare_n();
                 }
                 else if (message == "b")
                 {
-                    //d.string_compare_b();
+                    d.string_compare_b();
                 }
                 else if (message == "h")
                 {
