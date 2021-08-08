@@ -149,12 +149,12 @@ class database {
 		{
 			if (used > 0)
 			{
-				cout << setw(10) << "BRAND:" << setw(30) << "NAME:" << setw(30) << "HORSEPOWER:" 
+				cout << setw(15) << "BRAND:" << setw(30) << "NAME:" << setw(30) << "HORSEPOWER:" 
 					 << setw(30) << "CYLINDERS:" << setw(30) << "PRICE:";
 				cout << "\n";
 				for (int x=0; x<used;x++)
 				{
-					cout << setw(10) << data[x]->getbrand() << setw(30) << data[x]->getname() << setw(30) << to_string(data[x]->gethorsepower()) << "hp"
+					cout << setw(15) << data[x]->getbrand() << setw(30) << data[x]->getname() << setw(30) << to_string(data[x]->gethorsepower()) << "hp"
 						 << setw(30) << to_string(data[x]->getcylinders()) << setw(30) << to_string(data[x]->getprice());
 					cout << "\n";
 
@@ -485,10 +485,10 @@ class database {
 			}
 			return 0;
 		}
+		
 		// Function to delete the supercar from the database
 		void delete_supercar()
 		{
-			list_all();
 			string brand;
 			string name;
 			cout << "Enter the brand of the supercar you would like to remove: ";
@@ -501,29 +501,39 @@ class database {
 			{
 				if (data[x]->getbrand() == brand && data[x]->getname() == name)
 				{
-					deleted = true;
-					cout << "Supercar Found.   ";
-					if (x == (used - 1))
+					string response;
+					list_one(x);
+					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
+					getline(cin,response);
+					for (char &c : response)
 					{
-						data[x]->setbrand("");
-						data[x]->setname("");
-						data[x]->sethorsepower(0);
-						data[x]->setprice(0);
-						data[x]->setcylinders(0);
+						c = tolower(c);
 					}
-					else
+					if (response == "y")
 					{
-						for (int y = x+1; y < used; y++)
+						deleted = true;
+						if (x == (used - 1))
 						{
-							data[y-1]->setbrand(data[y]->getbrand());
-							data[y-1]->setname(data[y]->getname());
-							data[y-1]->sethorsepower(data[y]->gethorsepower());
-							data[y-1]->setprice(data[y]->getprice());
-							data[y-1]->setcylinders(data[y]->getcylinders());
+							data[x]->setbrand("");
+							data[x]->setname("");
+							data[x]->sethorsepower(0);
+							data[x]->setprice(0);
+							data[x]->setcylinders(0);
 						}
+						else
+						{
+							for (int y = x+1; y < used; y++)
+							{
+								data[y-1]->setbrand(data[y]->getbrand());
+								data[y-1]->setname(data[y]->getname());
+								data[y-1]->sethorsepower(data[y]->gethorsepower());
+								data[y-1]->setprice(data[y]->getprice());
+								data[y-1]->setcylinders(data[y]->getcylinders());
+							}
+						}
+						cout << "Supercar Deleted.\n";
+						used--;
 					}
-					cout << "Supercar Deleted.\n";
-					used--;
 				}
 			}
 			if (deleted == false){
@@ -558,6 +568,7 @@ class database {
 				data[small] = temp[0];
 			}
         }
+		
 		//Function to Sort data base wrt to the brand of the supercar
 		void string_compare_b()
         {
@@ -584,6 +595,7 @@ class database {
 				data[small] = temp[0];
 			}
         }
+		
 		//Function to Sort data base wrt to the Horsepower of the supercar (increasing)
 		void int_compare_h()
 		{
@@ -607,6 +619,7 @@ class database {
 				}
 			}
 		}
+		
 		//Function to Sort data base wrt to the Price of the supercar (increasing)
 		void int_compare_p()
 		{
@@ -630,6 +643,7 @@ class database {
 				}
 			}
 		}
+		
 		//Function to Sort data base wrt to the Cylinders of the supercar (increasing)
 		void int_compare_c()
 		{
@@ -681,7 +695,6 @@ class database {
 		{
 			return space;
 		}
-
 
 		//destructor for database.h
 		~database()
