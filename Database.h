@@ -362,6 +362,7 @@ class database {
 
 		void delete_supercar()
 		{
+			list_all();
 			string brand;
 			string name;
 			cout << "Enter the brand of the supercar you would like to remove: ";
