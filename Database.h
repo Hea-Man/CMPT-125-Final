@@ -8,8 +8,9 @@
 #include <iomanip>
 /*
 This stores all instances of Supercars.h. This is where we should implement our searching and sorting functions
-DOES NOT SUPPORT SPACES IN CAR NAMES. WE GOTTA FIX THIS SOMEHOW.
 */
+
+//Citations : find() function from this https://www.youtube.com/watch?v=w_d0MIYGz2I
 using namespace std;
 
 class database {
@@ -114,7 +115,7 @@ class database {
 		void save_to_file(const string &fname)
 		{
 			cout << "Saving Data...";
-			FILE* out = fopen("cars.txt","w");
+			FILE* out = fopen("database.txt","w");
 			fclose(out);
 			fstream fout;
 			fout.open(fname);
@@ -128,22 +129,6 @@ class database {
 			}	
 			fout.close();
 			cout << "Data Saved\n";	
-		}
-
-		//destructor for database.h
-		~database()
-		{
-			if (data != nullptr)
-			{
-				for (int x = 0; x < used; x++)
-				{
-					delete data[x];
-				}
-				delete[] data;
-			}
-			space = 0;
-			used = 0;
-			data = nullptr;
 		}
 
 		//prints one supercar to the terminal. Used only for the find() function
@@ -160,7 +145,6 @@ class database {
 		}
 
 		//Lists every supercar in the array
-		// Make changes so that the when outputted 
 		void list_all() const
 		{
 			if (used > 0)
@@ -213,9 +197,8 @@ class database {
 					cin.ignore(123,'\n');
 					getline(cin,substr);
 					cout <<"\n";
-					// so this find() function inside of the cstring library returns the position if substr found other 
+					// so this find() function inside of the string library returns the position if substr found other 
 					//wise it returns a -1 value 
-					
 					for (int x = 0; x < used; x++)
 					{
 						int position = (data[x]->getname()).find(substr);
@@ -359,7 +342,7 @@ class database {
 			}
 			return 0;
 		}
-
+		// Function to delete the supercar from the database
 		void delete_supercar()
 		{
 			list_all();
@@ -405,6 +388,7 @@ class database {
 			}		
 		}
 
+		//Function to Sort data base wrt to the name of the supercar
  		void string_compare_n()
         {
 			cout << " Heloooooooo ? inside name ";
@@ -431,7 +415,7 @@ class database {
 				data[small] = temp[0];
 			}
         }
-
+		//Function to Sort data base wrt to the brand of the supercar
 		void string_compare_b()
         {
 			int small;
@@ -457,7 +441,7 @@ class database {
 				data[small] = temp[0];
 			}
         }
-
+		//Function to Sort data base wrt to the Horsepower of the supercar
 		void int_compare_h()
 		{
 			int min;
@@ -480,7 +464,7 @@ class database {
 				}
 			}
 		}
-
+		//Function to Sort data base wrt to the Price of the supercar
 		void int_compare_p()
 		{
 			int min;
@@ -503,7 +487,7 @@ class database {
 				}
 			}
 		}
-
+		//Function to Sort data base wrt to the Cost of the supercar
 		void int_compare_c()
 		{
 			int min;
@@ -527,6 +511,8 @@ class database {
 			}
 		}
 
+		// Function to reverse the order of the Data base 
+		//( used inside of our sort functions to implement Reverse Alphabetical order and Descending order)
 		void reverse()
 		{
 			if (used > 1)
@@ -541,15 +527,33 @@ class database {
 			}
 		}
 
+		//Getter to get used
 		int getused()
 		{
 
 			return used;
 		}
-
+		// Getter to get total space inside of array
 		int getspace()
 		{
 			return space;
 		}
 
-}; // class database
+
+		//destructor for database.h
+		~database()
+		{
+			if (data != nullptr)
+			{
+				for (int x = 0; x < used; x++)
+				{
+					delete data[x];
+				}
+				delete[] data;
+			}
+			space = 0;
+			used = 0;
+			data = nullptr;
+		}
+
+}; // class database ends
