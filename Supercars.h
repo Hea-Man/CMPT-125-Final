@@ -257,9 +257,7 @@ public:
     }
 
     //Deconstructor:
-    ~supercar(){
-        cout<<"deconstructor called" << endl;
-    }
+    ~supercar(){}
 };
 
 

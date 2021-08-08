@@ -149,15 +149,10 @@ class Menu
             database d("database.txt");
             string message;
             stop = -1;
-            int first = 0;
+            cout << "Welcome to the Supercar Database!\n";
+            cout << "--------------------------------------------------------------------------\n\n";
             while (stop < 0)
             {
-                if (first == 0)
-                {
-                    first++;
-                    cout << "Welcome to the Supercar Database!\n";
-                    cout << "--------------------------------------------------------------------------\n\n";
-                }
                 cout << "Please choose from the menu below. ";
                 cout << "To choose an option, please type the letter in the parenthesis corresponding ";
                 cout << "to the choice you would like. \n\n";
@@ -177,6 +172,7 @@ class Menu
                 if (message == "a")
                 {
                     add(d);
+                    cout << "Supercar Added\n\n";
                 }
                 else if (message == "f")
                 {
