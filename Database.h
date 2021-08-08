@@ -135,6 +135,10 @@ class database {
 		{
 			if (data != nullptr)
 			{
+				for (int x = 0; x < used; x++)
+				{
+					delete data[x];
+				}
 				delete[] data;
 			}
 			space = 0;
@@ -483,8 +487,78 @@ class database {
             }
         }
 
+		void int_compare_h()
+		{
+			int min;
+			for (int x = 0; x < (used-1); x++)
+			{
+				min = x;
+				for (int y = x+1; y < used; y++)
+				{
+					if (data[y]->gethorsepower() < data[min]->gethorsepower())
+					{
+						min = y;
+					}
+				}
+				if (min != x)
+				{
+					supercar* temp[1];
+					temp[0] = data[x];
+					data[x] = data[min];
+					data[min] = temp[0];
+				}
+			}
+		}
+
+		void int_compare_p()
+		{
+			int min;
+			for (int x = 0; x < (used-1); x++)
+			{
+				min = x;
+				for (int y = x+1; y < used; y++)
+				{
+					if (data[y]->getprice() < data[min]->getprice())
+					{
+						min = y;
+					}
+				}
+				if (min != x)
+				{
+					supercar* temp[1];
+					temp[0] = data[x];
+					data[x] = data[min];
+					data[min] = temp[0];
+				}
+			}
+		}
+
+		void int_compare_c()
+		{
+			int min;
+			for (int x = 0; x < (used-1); x++)
+			{
+				min = x;
+				for (int y = x+1; y < used; y++)
+				{
+					if (data[y]->getcylinders() < data[min]->getcylinders())
+					{
+						min = y;
+					}
+				}
+				if (min != x)
+				{
+					supercar* temp[1];
+					temp[0] = data[x];
+					data[x] = data[min];
+					data[min] = temp[0];
+				}
+			}
+		}
+
 		int getused()
 		{
+
 			return used;
 		}
 
@@ -492,27 +566,5 @@ class database {
 		{
 			return space;
 		}
-
-/*
-		void reverse()
-		{
-			if (used > 1)
-			{
-				for (int x = 0; x < (used/2); x++)
-				{
-					int temp = data[x];
-					data[x] = data[used-1-x];
-					data[used-1-x] = temp;
-				}
-			}
-		}
-
-		void sort()
-		{
-			std::sort(data,data+used);
-		}
-
-	// ...
-	*/
 
 }; // class database

@@ -26,6 +26,7 @@ class Menu
             supercar *s = new supercar(a);
             d.add_supercar(s);
         }
+
         void find(database &d)
         {
             string message;
@@ -84,21 +85,31 @@ class Menu
             {
                 cout << "How do you want to sort your Supercar Data base? \n";
                 cout << "---------------------------------------------------\n\n";
-                cout << "(1) List all fields in Alphabetical or Reverse Alphabetical order\n";
-                cout << "(2) List all fields in Ascending or Descending order\n";
-                cout << "(R)eturn to Main Menu.\n";
+                cout << "(B)rand, (N)ame, (H)orsepower, (P)rice, (C)ylinders\n";
                 getline(cin,message);
                 cout << "\n";
                 for (char &c : message)
                 {
                     c = tolower(c);
                 }
-                if (message == "1" || message == "2" )
+                if (message == "b" || message == "n" )
                 {
                     d.sort_car(message);
+                    stop++;
                 }
-                else if (message == "r")
+                else if (message == "h")
                 {
+                    d.int_compare_h();
+                    stop++;
+                }
+                else if (message == "p")
+                {
+                    d.int_compare_p();
+                    stop++;
+                }
+                else if (message == "c")
+                {
+                    d.int_compare_c();
                     stop++;
                 }
                 else

@@ -1,0 +1,4 @@
+Tesla,Model S Plaid,1000,150000,0
+Ferrari,LaFerrari,963,1500000,12
+McLaren,P1,903,2000000,8
+Rimac,Nevera,1914,2000000,0
