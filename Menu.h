@@ -122,7 +122,12 @@ class Menu
                 {
                     cout << "I did not understand your answer. ";
                 }
-                cout << "Would you like to reverse the order of the array? (Y)es or (N)o?\n";
+                if (message == "p" || message == "h" || message == "c"){
+                    cout << "Would you like to store the array in Descending order? (Y)es or (N)o?\n";
+                }
+                else {
+                    cout << "Would you like to store the array in reverse Alphabetical order? (Y)es or (N)o?\n";
+                }
                 getline(cin,message);
                 cout << "\n";
                 for (char &c : message)
