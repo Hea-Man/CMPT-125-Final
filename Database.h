@@ -114,8 +114,7 @@ class database {
 		void save_to_file(const string &fname)
 		{
 			cout << "Saving Data...";
-			FILE *fp = fopen("cars.txt", "w");
-			fclose(fp);
+			string n;
 			fstream fout;
 			fout.open(fname);
 			for (int x = 0; x < used; x++)
@@ -404,7 +403,7 @@ class database {
         void sort_car(const string& type)
         {
 
-            if (type == "a")
+            if (type == "1")
             {
                 char ascending;
                 cout << "Do you want to sort your fields in (A)scending order or (D)escending order?\n";
@@ -414,23 +413,72 @@ class database {
                 if (ascending == 'a') {
                     cout << "Please select the field which you would like to sort in Ascending Order\n";
                     cout << "(N)ame or (B)rand";
-                    char field;
+					cin.clear();
+					cin.ignore(123,'\n');
+                    string field;
                     cin >> field;
-                    field = tolower(field);
+                    for (char &c:field){
+						c = tolower(c);
+					}
+					string temp;
                     //Name
-                    if (field == 'n') {
-                        for (int x = 0; x < used; x++)
+                    if (field == "n") {
+
+
+                        /* for (int x = 0; x < used; x++)
                         {
-                            int intializer = 0;
-                            for ( int z = intializer ; z < used ; z++){
+							// To sort in Alphabetical order
+                            for ( int z = x+1 ; z < used ; ++z){
+								if(data[x]->getname() > data[z]->getname()){
+									
 
-
-
+									// We don't want to be swapping here lets try to figure out the minimum value 
+									temp = data[x]->getname();
+									data[x]->getname() = data[z]->getname();
+									data[z]->getname() = temp;
+								}
                             }
-                        }
+
+							// The x index is in correct location now so 
+
+                        } */
+
+
+						//Or Just make it based on a selection sorting algo that checks all elements and puts the smallest in index 0
+						// and then moves onto the next index
+
+						int i , j , small ;
+						/* string nametemp,brandtemp;
+						int horsepowertemp , cylinderstemp, pricetemp; */
+						supercar temp("unknown", "unknown1122", 1 , 1 ,1);
+
+						cout << temp.getname();
+						
+						for ( i = 0 ; i < used-1 ; i ++) {
+							small = i;
+							//Every j loop check in the whole array the value of j and small - assign small accordingly
+							for ( j= i+1 ; j < used ; j++){
+								//if value at j is less than value at small , then store index j at small 
+								//at the end of this loop the smallest value's index will be in small
+								if (data[j]->getname() < data[small]->getname()) {
+									small = j;
+								}
+							}
+							// Now we do the swap with the smallest value and the i index
+							
+							
+							//shallow copying the superclass object at index i to temp
+							temp = *data[i];
+							cout << " \n";;
+							//well its working so like woo - this on paper is sorting our data base
+							cout<< temp.getbrand() << "\n " << temp.getname() << "\n" << temp.gethorsepower() << "\n" << temp.getcylinders() << "\n"; 
+							data[i] = data[small];
+							*data[small] = temp;
+
+							cout << "what its being swapped with : " <<data[i]->getbrand() << "   " << data[i]->getname() ;
+						}  
                     }
                 }
-
             }
         }
 

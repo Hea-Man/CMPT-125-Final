@@ -84,15 +84,16 @@ class Menu
             {
                 cout << "How do you want to sort your Supercar Data base? \n";
                 cout << "---------------------------------------------------\n\n";
-                cout << "List all fields in (A)lphabetical or Reverse Alphabetical order\n ";
-                cout << "List all fields in Ascending or (D)escending order\n";
+                cout << "(1) List all fields in Alphabetical or Reverse Alphabetical order\n";
+                cout << "(2) List all fields in Ascending or Descending order\n";
+                cout << "(R)eturn to Main Menu.\n";
                 getline(cin,message);
                 cout << "\n";
                 for (char &c : message)
                 {
                     c = tolower(c);
                 }
-                if (message == "a" || message == "d" )
+                if (message == "1" || message == "2" )
                 {
                     d.sort_car(message);
                 }
@@ -130,6 +131,7 @@ class Menu
                 cout << "(D)elete a Supercar.\n";
                 cout << "(F)ind a Supercar.\n";
                 cout << "(L)ist all Supercars.\n";
+                cout << "(S)ort all Supercars \n";
                 cout << "(Q)uit application.\n";
                 getline(cin,message);
                 cout << "\n";
@@ -158,6 +160,10 @@ class Menu
                 {
                     d.save_to_file("cars.txt");
                     stop++;
+                }
+                else if (message == "s")
+                {
+                    sort(d);
                 }
                 else
                 {
