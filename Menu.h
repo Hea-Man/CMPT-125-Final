@@ -43,6 +43,7 @@ class Menu
                 cout << "(P)rice of Supercar.\n";
                 cout << "(H)orsepower of Supercar.\n";
                 cout << "(B)rand of Supercars.\n";
+                cout << "(C)ylinders Supercar has\n";
                 cout << "(R)eturn to Main Menu.\n";
                 getline(cin,message);
                 cout << "\n";
@@ -69,9 +70,41 @@ class Menu
         //This directs the remove menu to remove a supercar
         void remove(database &d)
         {
-            cout << "Remove a Supercar\n";
-            cout << "--------------------------------------------------------------------------\n\n";
-            d.delete_supercar();
+            int stop = -1;
+            while (stop < 0)
+            {
+                string message;
+                cout << "Remove a Supercar\n";
+                cout << "--------------------------------------------------------------------------\n\n";
+                cout << "You can delete a supercar by:\n\n";
+                cout << "(N)ame of Supercar.\n";
+                cout << "(P)rice of Supercar.\n";
+                cout << "(H)orsepower of Supercar.\n";
+                cout << "(B)rand of Supercars.\n";
+                cout << "(R)eturn to Main Menu.\n";
+                getline(cin,message);
+                cout << "\n";
+                for (char &c : message)
+                {
+                    c = tolower(c);
+                }
+                if (message == "b")
+                {
+                    d.delete_supercar_b();
+                }
+                else if (message == "n")
+                {
+                    d.delete_supercar_n();
+                }
+                else if (message == "r")
+                {
+                    stop++;
+                }
+                else
+                {
+                    cout << "I did not understand your answer. ";
+                }
+            }
         }
 
         //This function calls another function to list all the supercars in the database

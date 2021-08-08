@@ -165,7 +165,7 @@ class database {
 		//Finds a car in the array
 		//One type of search should print all the records where the typed in string occurs as a substring in the appropriate field
 		//One type of search should print all the records where the typed in int range is used to search for appropriate fields
-		int find_car(const string &type) const
+		void find_car(const string &type) const
 		{
 			//Finding via name
 			if (type == "n")
@@ -191,7 +191,6 @@ class database {
 					}
 				}
 				else if (input == 'y'){
-					cout <<"test 2\n";
 					string substr;
 					cout << "Enter the substring of the Name you wish to find: ";
 					cin.clear();
@@ -209,8 +208,6 @@ class database {
 						}
 					}
 				}
-				cout <<"test3\n";
-				
 			}
 
 			//Finding via brand
@@ -292,6 +289,7 @@ class database {
 						}
 					}
 				}
+
 				//Finding all fields within a certain price range
 				else if (input == 'r')
 				{
@@ -328,6 +326,7 @@ class database {
 						}
 					}
 				}
+
 				//If user doesn't type E Or R
 				else {
 					cout << "Invalid answer Please try again \n";
@@ -483,35 +482,33 @@ class database {
 					cout << "Invalid answer Please try again \n";
 				}
 			}
-			return 0;
 		}
 		
 		// Function to delete the supercar from the database
-		void delete_supercar()
+		void delete_supercar_b()
 		{
 			string brand;
-			string name;
-			cout << "Enter the brand of the supercar you would like to remove: ";
+			cout << "Enter the substring of the brand or the exact brand of the supercar you would like to remove: ";
 			getline(cin,brand);
-			cout << "Enter the name of the super car you would like to remove: ";
-			getline(cin,name);
-			cout << "\n";
-			bool deleted = false;
+			cout <<"\n";
+			bool found = false;
 			for (int x = 0; x < used; x++)
 			{
-				if (data[x]->getbrand() == brand && data[x]->getname() == name)
+				int position = (data[x]->getbrand()).find(brand);
+				if (position != -1)
 				{
+					found = true;
 					string response;
 					list_one(x);
 					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
 					getline(cin,response);
+					cout << "\n";
 					for (char &c : response)
 					{
 						c = tolower(c);
 					}
 					if (response == "y")
 					{
-						deleted = true;
 						if (x == (used - 1))
 						{
 							data[x]->setbrand("");
@@ -531,14 +528,81 @@ class database {
 								data[y-1]->setcylinders(data[y]->getcylinders());
 							}
 						}
-						cout << "Supercar Deleted.\n";
 						used--;
+						if (x <= 2)
+						{
+							x = 0;
+						}
+						else
+						{
+							x = x-2;
+						}
 					}
 				}
 			}
-			if (deleted == false){
-				cout << "Super car you entered was not found in the data base, please try again \n \n";
-			}		
+			if (found == false){
+				cout << "Super car you entered was not found in the data base, please try again \n\n";
+			}
+		}
+
+		void delete_supercar_n()
+		{
+			string name;
+			cout << "Enter the substring of the name or the exact name of the supercar you would like to remove: ";
+			getline(cin,name);
+			cout <<"\n";
+			bool found = false;
+			for (int x = 0; x < used; x++)
+			{
+				int position = (data[x]->getname()).find(name);
+				if (position != -1)
+				{
+					found = true;
+					string response;
+					list_one(x);
+					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
+					getline(cin,response);
+					cout << "\n";
+					for (char &c : response)
+					{
+						c = tolower(c);
+					}
+					if (response == "y")
+					{
+						if (x == (used - 1))
+						{
+							data[x]->setbrand("");
+							data[x]->setname("");
+							data[x]->sethorsepower(0);
+							data[x]->setprice(0);
+							data[x]->setcylinders(0);
+						}
+						else
+						{
+							for (int y = x+1; y < used; y++)
+							{
+								data[y-1]->setbrand(data[y]->getbrand());
+								data[y-1]->setname(data[y]->getname());
+								data[y-1]->sethorsepower(data[y]->gethorsepower());
+								data[y-1]->setprice(data[y]->getprice());
+								data[y-1]->setcylinders(data[y]->getcylinders());
+							}
+						}
+						used--;
+						if (x <= 2)
+						{
+							x = 0;
+						}
+						else
+						{
+							x = x-2;
+						}
+					}
+				}
+			}
+			if (found == false){
+				cout << "Super car you entered was not found in the data base, please try again \n\n";
+			}
 		}
 
 		//Function to Sort data base wrt to the name of the supercar
