@@ -146,7 +146,7 @@ class Menu
         void main_menu()
         {
             int stop = -1;
-            database d("cars.txt");
+            database d("database.txt");
             string message;
             stop = -1;
             int first = 0;
@@ -196,7 +196,7 @@ class Menu
                 }
                 else if (message == "q")
                 {
-                    d.save_to_file("cars.txt");
+                    d.save_to_file("database.txt");
                     stop++;
                 }
                 else

@@ -1,0 +1,12 @@
+Ferrari,LaFerrari,963,1500000,12
+Ferrari,488 Pista,770,400000,8
+Ferrari,458,800,230000,8
+Koenigsegg,Gemera,1200,2000000,12
+Koenigsegg,Agera,1300,1900000,12
+McLaren,Senna,789,1050000,8
+Mclaren,720s,710,500000,8
+Rimac,Nevera,1914,2000000,0
+Rimac,Concept One,1224,2000000,0
+Tesla,Model S Plaid,1000,150000,0
+Tesla,Model X Plaid,1000,170000,0
+Tesla,Model 3 Performance,470,60000,0
