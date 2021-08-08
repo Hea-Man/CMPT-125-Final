@@ -114,7 +114,8 @@ class database {
 		void save_to_file(const string &fname)
 		{
 			cout << "Saving Data...";
-			string n;
+			FILE* out = fopen("cars.txt","w");
+			fclose(out);
 			fstream fout;
 			fout.open(fname);
 			for (int x = 0; x < used; x++)
