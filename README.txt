@@ -10,15 +10,16 @@ Ozafa Yousuf Mahmood; 301445050; oym@sfu.ca
 Limitations
 -----------
 
-deleting by range has not been implemented
+
 
 Known Bugs
 ----------
 
-- There are a few times in which text may have to be entered twice. The code still
-  works normally. We have attempted to fix this bug many times over but yet it still
-  happens occasionally. If this happens, just enter what you wanted to enter again
-  and it will continue to work.
+- So we think we have fixed this bug on our end and have tested it extensively but 
+  just incase we have missed it somewhere. We want the TA marking this to know that 
+  sometimes you might have to input your answer twice so that the resulting function
+  / program runs ( Note : the program has all functionalities implemented and we don't
+  want this bug to result in those not getting marked )
 
 
 Extra Features
