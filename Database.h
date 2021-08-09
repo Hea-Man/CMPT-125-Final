@@ -300,7 +300,7 @@ class database {
 						cin >> num;
 						if (num < 0)
 						{
-							cout << "That number is invalid. Please enter a valid number: ";
+							cout << "That number is invalid. Please enter a valid number: \n";
 						}
 						else
 						{
@@ -337,11 +337,11 @@ class database {
 						//Checking lowerlimit and upper limit
 						if (lowerprice < 0 || upperprice < 0 )
 						{
-							cout << "That price range is invalid. Please enter a valid number: ";
+							cout << "That price range is invalid. Please enter a valid number: \n";
 						}
 						else if (lowerprice > upperprice)
 						{
-							cout<< " Lower limit can't be greater than upper limit";
+							cout<< " Lower limit can't be greater than upper limit \n";
 						}
 						else
 						{
@@ -388,7 +388,7 @@ class database {
 						cin >> num;
 						if (num < 0)
 						{
-							cout << "That number is invalid. Please enter a valid number: ";
+							cout << "That number is invalid. Please enter a valid number: \n";
 						}
 						else
 						{
@@ -471,7 +471,7 @@ class database {
 						cin >> num;
 						if (num < 0 )
 						{
-							cout << "That number is invalid. Please enter a valid number: ";
+							cout << "That number is invalid. Please enter a valid number: \n";
 						}
 						else
 						{
@@ -506,11 +506,11 @@ class database {
 						cin >> uppercyl;
 						if (lowercyl < 0 || uppercyl < 0 )
 						{
-							cout << "That Cylinder range is invalid. Please enter a valid number: ";
+							cout << "That Cylinder range is invalid. Please enter a valid number: \n";
 						}
 						else if (lowercyl > uppercyl)
 						{
-							cout<< " Lower limit can't be greater than upper limit";
+							cout<< " Lower limit can't be greater than upper limit\n";
 						}
 						else
 						{
