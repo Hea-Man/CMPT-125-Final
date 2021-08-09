@@ -808,9 +808,8 @@ class database {
 		}
 
 		//Function to Sort data base wrt to the name of the supercar
- 		void string_compare_n()
+ 		void sort_n()
         {
-			cout << " Heloooooooo ? inside name ";
 			int small;
 
 			for (int i = 0 ; i < (used-1) ; i ++)
@@ -836,7 +835,7 @@ class database {
         }
 		
 		//Function to Sort data base wrt to the brand of the supercar
-		void string_compare_b()
+		void sort_b()
         {
 			int small;
 
@@ -863,7 +862,7 @@ class database {
         }
 		
 		//Function to Sort data base wrt to the Horsepower of the supercar (increasing)
-		void int_compare_h()
+		void sort_h()
 		{
 			int min;
 			for (int x = 0; x < (used-1); x++)
@@ -887,7 +886,7 @@ class database {
 		}
 		
 		//Function to Sort data base wrt to the Price of the supercar (increasing)
-		void int_compare_p()
+		void sort_p()
 		{
 			int min;
 			for (int x = 0; x < (used-1); x++)
@@ -911,7 +910,7 @@ class database {
 		}
 		
 		//Function to Sort data base wrt to the Cylinders of the supercar (increasing)
-		void int_compare_c()
+		void sort_c()
 		{
 			int min;
 			for (int x = 0; x < (used-1); x++)

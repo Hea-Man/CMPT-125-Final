@@ -147,27 +147,27 @@ class Menu
                 }
                 if (message == "n" )
                 {
-                    d.string_compare_n();
+                    d.sort_n();
                     has_sorted++;
                 }
                 else if (message == "b")
                 {
-                    d.string_compare_b();
+                    d.sort_b();
                     has_sorted++;
                 }
                 else if (message == "h")
                 {
-                    d.int_compare_h();
+                    d.sort_h();
                     has_sorted++;
                 }
                 else if (message == "p")
                 {
-                    d.int_compare_p();
+                    d.sort_p();
                     has_sorted++;
                 }
                 else if (message == "c")
                 {
-                    d.int_compare_c();
+                    d.sort_c();
                     has_sorted++;
                 }
                 else
