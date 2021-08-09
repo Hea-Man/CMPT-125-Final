@@ -137,6 +137,7 @@ class Menu
                 cout << "How do you want to sort your Supercar Data base? \n";
                 cout << "---------------------------------------------------\n\n";
                 cout << "(B)rand, (N)ame, (H)orsepower, (P)rice, (C)ylinders\n";
+                int has_sorted = 0;
                 getline(cin,message);
                 cout << "\n";
                 for (char &c : message)
@@ -146,47 +147,55 @@ class Menu
                 if (message == "n" )
                 {
                     d.string_compare_n();
+                    has_sorted++;
                 }
                 else if (message == "b")
                 {
                     d.string_compare_b();
+                    has_sorted++;
                 }
                 else if (message == "h")
                 {
                     d.int_compare_h();
+                    has_sorted++;
                 }
                 else if (message == "p")
                 {
                     d.int_compare_p();
+                    has_sorted++;
                 }
                 else if (message == "c")
                 {
                     d.int_compare_c();
+                    has_sorted++;
                 }
                 else
                 {
                     cout << "I did not understand your answer. ";
                 }
-                if (message == "p" || message == "h" || message == "c"){
-                    cout << "Would you like to store the array in Descending order? (Y)es or (N)o?\n";
-                }
-                else {
-                    cout << "Would you like to store the array in reverse Alphabetical order? (Y)es or (N)o?\n";
-                }
-                getline(cin,message);
-                cout << "\n";
-                for (char &c : message)
+                if (has_sorted > 0)
                 {
-                    c = tolower(c);
-                }
-                if (message == "y")
-                {
-                    d.reverse();
-                    stop++;
-                }
-                else
-                {
-                    stop++;
+                    if (message == "p" || message == "h" || message == "c"){
+                        cout << "Would you like to store the array in Descending order? (Y)es or (N)o?\n";
+                    }
+                    else {
+                        cout << "Would you like to store the array in reverse Alphabetical order? (Y)es or (N)o?\n";
+                    }
+                    getline(cin,message);
+                    cout << "\n";
+                    for (char &c : message)
+                    {
+                        c = tolower(c);
+                    }
+                    if (message == "y")
+                    {
+                        d.reverse();
+                        stop++;
+                    }
+                    else
+                    {
+                        stop++;
+                    }
                 }
             }
         }
