@@ -313,7 +313,7 @@ class database {
 						if (data[x]->getprice() == num)
 						{
 							list_one(x);
-							found = false;
+							found = true;
 						}
 					}
 					if (found == false) {
@@ -354,7 +354,7 @@ class database {
 						if (data[x]->getprice() >= lowerprice && data[x]->getprice() <= upperprice)
 						{
 							list_one(x);
-							found = false;
+							found = true;
 						}
 					}
 					if (found == false) {
