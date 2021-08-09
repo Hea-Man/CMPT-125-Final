@@ -15,13 +15,20 @@ deleting by range has not been implemented
 Known Bugs
 ----------
 
-- After certain functions, it goes back to the main menu and then displays,
-  I don't understand your answer. Then the main menu reloads and then the user
-  can continue what they want to do
+- There are a few times in which text may have to be entered twice. The code still
+  works normally. We have attempted to fix this bug many times over but yet it still
+  happens occasionally. If this happens, just enter what you wanted to enter again
+  and it will continue to work.
 
 
 Extra Features
 --------------
+
+- We added additional fields in our supercar class. We also have an extensive
+  class 
+
+- We tried to make sure to address lots of cases of find and delete and those functions
+  are implemented separately
 
 - We used github to work on this project together. We learned github and then we
   used its various features to work on the project. The link to it is here:
