@@ -27,7 +27,7 @@
 // Student Info
 // ------------
 //
-// Name : Ozafa Yousef Mahmood
+// Name : Ozafa Yousuf Mahmood
 // St.# : 301445050
 // Email: oym@sfu.ca
 //
