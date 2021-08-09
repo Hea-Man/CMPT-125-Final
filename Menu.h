@@ -213,6 +213,8 @@ class Menu
             cout << "--------------------------------------------------------------------------\n\n";
             while (stop < 0)
             {
+                cout << "\nMain Menu\n";
+                cout << "--------------------------------------------------------------------------\n\n";
                 cout << "Please choose from the menu below. ";
                 cout << "To choose an option, please type the letter in the parenthesis corresponding ";
                 cout << "to the choice you would like. \n\n";
