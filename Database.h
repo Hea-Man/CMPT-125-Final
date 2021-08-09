@@ -1,13 +1,14 @@
-#include <iostream>      
-#include <fstream>      
-#include <string>        
-#include <algorithm>    
-#include <cassert>      
-#include "cmpt_error.h" 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <cassert>
+#include "cmpt_error.h"
 #include "Supercars.h"
 #include <iomanip>
 /*
-This stores all instances of Supercars.h. This is where we should implement our searching and sorting functions
+This stores all instances of Supercars.h. This is where we should implement our searching and
+sorting functions
 */
 
 //Citations : find() function from this https://www.youtube.com/watch?v=w_d0MIYGz2I
@@ -154,8 +155,10 @@ class database {
 				cout << "\n";
 				for (int x=0; x<used;x++)
 				{
-					cout << setw(15) << data[x]->getbrand() << setw(30) << data[x]->getname() << setw(30) << to_string(data[x]->gethorsepower()) << "hp"
-						 << setw(30) << to_string(data[x]->getcylinders()) << setw(30) << to_string(data[x]->getprice());
+					cout << setw(15) << data[x]->getbrand() << setw(30) << data[x]->getname() 
+						<< setw(30) << to_string(data[x]->gethorsepower()) << "hp" << setw(30) 
+						<< to_string(data[x]->getcylinders()) << setw(30)
+						<< to_string(data[x]->getprice());
 					cout << "\n";
 
 				}
@@ -163,8 +166,9 @@ class database {
 		}
 		
 		//Finds a car in the array
-		//One type of search should print all the records where the typed in string occurs as a substring in the appropriate field
-		//One type of search should print all the records where the typed in int range is used to search for appropriate fields
+		//One type of search should print all the records where the typed in string occurs as
+		//a substring in the appropriate field One type of search should print all the 
+		//records where the typed in int range is used to search for appropriate fields
 		void find_car(const string &type) const
 		{
 			bool found = false;
@@ -202,7 +206,7 @@ class database {
 					cin.ignore(123,'\n');
 					getline(cin,substr);
 					cout <<"\n";
-					// so this find() function inside of the string library returns the position if substr found other 
+					// so this find() function inside of the string library returns the position if substr found other
 					//wise it returns a -1 value 
 					for (int x = 0; x < used; x++)
 					{
@@ -259,7 +263,7 @@ class database {
 					cin.ignore(123,'\n');
 					getline(cin,substr);
 					cout <<"\n";
-					// so this find() function inside of the string library returns the position if substr found other 
+					// so this find() function inside of the string library returns the position if substr found other
 					//wise it returns a -1 value 
 					for (int x = 0; x < used; x++)
 					{

@@ -10,8 +10,9 @@ from assignment 3 (and not just using raw arrays without a class).
 
 As described above, don't use vector, or any other C++ "container"
 class from the STL or elsewhere. The marker will check this after they mark your project, 
-and you have used vector or a similar class, then your score for this assignment will be set to 50% of the total mark 
-(if your mark before this check is less than 50%, then your mark won't be changed).
+and you have used vector or a similar class, then your score for this assignment will be
+set to 50% of the total mark (if your mark before this check is less than 50%, 
+then your mark won't be changed).
 
 */
 #ifndef SUPERCAR_H
@@ -96,7 +97,8 @@ public:
                 //Clear input stream
                 cin.clear();
 
-                //Discard previous input - a function to clear one or more characters from the input buffer including next line character
+                //Discard previous input - a function to clear one or more characters from the input buffer
+                //including next line character
                 cin.ignore(123,'\n');
             }
             stop = 0 ;
@@ -118,7 +120,8 @@ public:
                 //Clear input stream
                 cin.clear();
 
-                //Discard previous input - a function to clear one or more characters from the input buffer including next line character
+                //Discard previous input - a function to clear one or more characters from the 
+                //input buffer including next line character
                 cin.ignore(123,'\n');
             }
             stop = 0 ;
@@ -139,7 +142,8 @@ public:
                 //Clear input stream
                 cin.clear();
 
-                //Discard previous input - a function to clear one or more characters from the input buffer including next line character
+                //Discard previous input - a function to clear one or more characters from the input 
+                //buffer including next line character
                 cin.ignore(123,'\n');
             }
             stop = 0 ;

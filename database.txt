@@ -3,7 +3,7 @@ Aston Martin,Valkyrie,1000,3200000,12
 Aston Martin,DB11,600,300000,12
 Audi,R8 V10 Plus,610,180000,10
 Bugatti,Chiron,1479,2900000,16
-Bugatti,Chiron Super Sport 300+,1679,35000000,16
+Bugatti,Chiron Super Sport 300+,1679,3500000,16
 Bugatti,Chiron Pur Sport,1479,3500000,16
 Ferrari,LaFerrari,963,1500000,12
 Ferrari,458,562,230000,8
