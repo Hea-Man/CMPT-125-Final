@@ -1,18 +1,18 @@
-Ferrari,458,562,230000,8
-Ferrari,488 Pista,770,400000,8
-Porsche,911 Turbo S,650,200000,6
-Porsche,918,887,1000000,8
-Koenigsegg,Agera,1361,10000000,8
-Bugatti,Chiron,1479,2900000,16
-Bugatti,Chiron Super Sport 300+,1679,35000000,16
-Rimac,Concept One,1224,2000000,0
-Aston Martin,DBS Superleggera,715,400000,12
-Koenigsegg,Gemera,1700,2000000,3
-Ferrari,LaFerrari,963,1500000,12
-Maserati,MC20,620,195000,6
 Tesla,Model S Plaid,1000,150000,0
 Tesla,Model X Plaid,1000,170000,0
-Rimac,Nevera,1914,2000000,0
-Koeniggsegg,Regera,1500,3000000,8
+Maserati,MC20,620,195000,6
+Porsche,911 Turbo S,650,200000,6
+Ferrari,458,562,230000,8
+Ferrari,488 Pista,770,400000,8
+Aston Martin,DBS Superleggera,715,400000,12
 Ferrari,SF90 Stradale,986,650000,8
+Porsche,918,887,1000000,8
+Ferrari,LaFerrari,963,1500000,12
+Koenigsegg,Gemera,1700,2000000,3
+Rimac,Concept One,1224,2000000,0
+Rimac,Nevera,1914,2000000,0
+Bugatti,Chiron,1479,2900000,16
+Koeniggsegg,Regera,1500,3000000,8
 Aston Martin,Valkyrie,1000,3200000,12
+Koenigsegg,Agera,1361,10000000,8
+Bugatti,Chiron Super Sport 300+,1679,35000000,16
