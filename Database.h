@@ -764,7 +764,7 @@ class database {
 			bool found = false;
 			for (int x = 0; x < used; x++)
 			{
-				if (data[x]->getprice() == cylinders)
+				if (data[x]->getcylinders() == cylinders)
 				{
 					found = true;
 					string response;
