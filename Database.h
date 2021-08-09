@@ -167,6 +167,7 @@ class database {
 		//One type of search should print all the records where the typed in int range is used to search for appropriate fields
 		void find_car(const string &type) const
 		{
+			bool found = false;
 			//Finding via name
 			if (type == "n")
 			{
@@ -187,7 +188,11 @@ class database {
 						if (data[x]->getname() == nme)
 						{
 							list_one(x);
+							found = true;
 						}
+					}
+					if (found == false) {
+					cout << "There is no super car with the name " << nme << " in the data base right now \n" ;
 					}
 				}
 				else if (input == 'y'){
@@ -205,14 +210,24 @@ class database {
 						if (position != -1) // if found print it
 						{
 							list_one(x);
+							found = true;
 						}
 					}
+					if (found == false) {
+					cout << "There is no super car with the name" << substr << "in the data base right now \n" ;
+					}
 				}
+				//If user doesn't type E Or R
+				else {
+					cout << "Invalid answer Please try again \n";
+				}
+				
 			}
 
 			//Finding via brand
 			if (type == "b")
 			{
+				bool found = false;
 				cout<<"Do you want to Find all records where the input occurs as a substring as well ?\n";
 				cout<<"Please type (Y)es or (N)o:    ";
 				char input;
@@ -230,7 +245,11 @@ class database {
 						if (data[x]->getbrand() == nme)
 						{
 							list_one(x);
+							found = true;
 						}
+					}
+					if (found == false) {
+					cout << "There is no super car with the brand" << nme << "in the data base right now \n" ;
 					}
 				}
 				else if (input == 'y'){
@@ -248,15 +267,23 @@ class database {
 						if (position != -1) // if found print it
 						{
 							list_one(x);
+							found = true;
 						}
 					}
+					if (found == false) {
+					cout << "There is no super car with the brand" << substr << "in the data base right now \n" ;
+					}
+				}
+				//If user doesn't type E Or R
+				else {
+					cout << "Invalid answer Please try again \n";
 				}
 			}
 
 			//Finding Via price
 			if (type == "p")
 			{
-
+				bool found = false;
 				cout<<"Do you want to Find all records where the input occurs as an exactl value Or a range? ?\n";
 				cout<<"Please type \n(E) for Exact value \n(R) For all values inside of a Range:    ";
 				char input;
@@ -286,7 +313,11 @@ class database {
 						if (data[x]->getprice() == num)
 						{
 							list_one(x);
+							found = false;
 						}
+					}
+					if (found == false) {
+					cout << "There is no super car with the price" << num << "in the data base right now \n" ;
 					}
 				}
 
@@ -323,7 +354,11 @@ class database {
 						if (data[x]->getprice() >= lowerprice && data[x]->getprice() <= upperprice)
 						{
 							list_one(x);
+							found = false;
 						}
+					}
+					if (found == false) {
+					cout << "There is no super car with that price range in the data base right now \n" ;
 					}
 				}
 
@@ -336,6 +371,7 @@ class database {
 			//Finding Via horsepower
 			if (type == "h")
 			{
+				bool found = false;
 				cout<<"Do you want to Find all records where the input occurs as an exactl value Or a range? ?\n";
 				cout<<"Please type \n(E) for Exact value \n(R) For all values inside of a Range:    ";
 				char input;
@@ -365,7 +401,11 @@ class database {
 						if (data[x]->gethorsepower() == num)
 						{
 							list_one(x);
+							found = true;
 						}
+					}
+					if (found == false) {
+					cout << "There is no super car with that Horsepower in the data base right now \n" ;
 					}
 				}
 				//Finding all fields within a certain Horsepower range
@@ -382,11 +422,11 @@ class database {
 						cin >> upperhp;
 						if (lowerhp < 0 || upperhp < 0 )
 						{
-							cout << "That horsepower range is invalid. Please enter a valid number: ";
+							cout << "That horsepower range is invalid. Please enter a valid number: \n";
 						}
 						else if (lowerhp > upperhp)
 						{
-							cout<< " Lower limit can't be greater than upper limit";
+							cout<< " Lower limit can't be greater than upper limit\n";
 						}
 						else
 						{
@@ -399,7 +439,11 @@ class database {
 						if (data[x]->gethorsepower() >= lowerhp && data[x]->gethorsepower() <= upperhp)
 						{
 							list_one(x);
+							found = true;
 						}
+					}
+					if (found == false) {
+					cout << "There is no super car with that Horsepower range in the data base right now \n" ;
 					}
 				}
 				//If user doesn't type E Or R
@@ -410,6 +454,7 @@ class database {
 			//Finding via cylinders
 			if (type == "c")
 			{
+				bool found = false;
 				cout<<"Do you want to Find all records where the input occurs as an exactl value Or a range? ?\n";
 				cout<<"Please type \n(E) for Exact value \n(R) For all values inside of a Range:    ";
 				char input;
@@ -439,7 +484,11 @@ class database {
 						if (data[x]->getcylinders() == num)
 						{
 							list_one(x);
+							found = true;
 						}
+					}
+					if (found == false) {
+					cout << "There is no super car with those Cylinders in the data base right now \n" ;
 					}
 				}
 
@@ -474,7 +523,11 @@ class database {
 						if (data[x]->getcylinders() >= lowercyl && data[x]->getcylinders() <= uppercyl)
 						{
 							list_one(x);
+							found = true;
 						}
+					}
+					if (found == false) {
+					cout << "There is no super car with that Cylinders range in the data base right now \n" ;
 					}
 				}
 				//If user doesn't type E Or R
@@ -482,7 +535,7 @@ class database {
 					cout << "Invalid answer Please try again \n";
 				}
 			}
-		}
+		} // find function 
 		
 		// Function to delete the supercar from the database
 		void delete_supercar_b()
@@ -561,6 +614,197 @@ class database {
 					string response;
 					list_one(x);
 					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
+					cin.clear();
+					cin.ignore(123,'\n');
+					getline(cin,response);
+					cout << "\n";
+					for (char &c : response)
+					{
+						c = tolower(c);
+					}
+					if (response == "y")
+					{
+						if (x == (used - 1))
+						{
+							data[x]->setbrand("");
+							data[x]->setname("");
+							data[x]->sethorsepower(0);
+							data[x]->setprice(0);
+							data[x]->setcylinders(0);
+						}
+						else
+						{
+							for (int y = x+1; y < used; y++)
+							{
+								data[y-1]->setbrand(data[y]->getbrand());
+								data[y-1]->setname(data[y]->getname());
+								data[y-1]->sethorsepower(data[y]->gethorsepower());
+								data[y-1]->setprice(data[y]->getprice());
+								data[y-1]->setcylinders(data[y]->getcylinders());
+							}
+						}
+						used--;
+						if (x <= 2)
+						{
+							x = 0;
+						}
+						else
+						{
+							x = x-2;
+						}
+					}
+				}
+			}
+			if (found == false){
+				cout << "Super car you entered was not found in the data base, please try again \n\n";
+			}
+		}
+
+		void delete_supercar_h()
+		{
+			int horsepower;
+			string response;
+			cout << "Enter the horsepower of the supercar you would like to remove: ";
+			getline(cin,response);
+			horsepower = stoi(response);
+			cout <<"\n";
+			bool found = false;
+			for (int x = 0; x < used; x++)
+			{
+				if (data[x]->gethorsepower() == horsepower)
+				{
+					found = true;
+					string response;
+					list_one(x);
+					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
+					cin.clear();
+					cin.ignore(123,'\n');
+					getline(cin,response);
+					cout << "\n";
+					for (char &c : response)
+					{
+						c = tolower(c);
+					}
+					if (response == "y")
+					{
+						if (x == (used - 1))
+						{
+							data[x]->setbrand("");
+							data[x]->setname("");
+							data[x]->sethorsepower(0);
+							data[x]->setprice(0);
+							data[x]->setcylinders(0);
+						}
+						else
+						{
+							for (int y = x+1; y < used; y++)
+							{
+								data[y-1]->setbrand(data[y]->getbrand());
+								data[y-1]->setname(data[y]->getname());
+								data[y-1]->sethorsepower(data[y]->gethorsepower());
+								data[y-1]->setprice(data[y]->getprice());
+								data[y-1]->setcylinders(data[y]->getcylinders());
+							}
+						}
+						used--;
+						if (x <= 2)
+						{
+							x = 0;
+						}
+						else
+						{
+							x = x-2;
+						}
+					}
+				}
+			}
+			if (found == false){
+				cout << "Super car you entered was not found in the data base, please try again \n\n";
+			}
+		}
+
+		void delete_supercar_p()
+		{
+			int price;
+			string response;
+			cout << "Enter the price of the supercar you would like to remove: ";
+			getline(cin,response);
+			price = stoi(response);
+			cout <<"\n";
+			bool found = false;
+			for (int x = 0; x < used; x++)
+			{
+				if (data[x]->getprice() == price)
+				{
+					found = true;
+					string response;
+					list_one(x);
+					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
+					cin.clear();
+					cin.ignore(123,'\n');
+					getline(cin,response);
+					cout << "\n";
+					for (char &c : response)
+					{
+						c = tolower(c);
+					}
+					if (response == "y")
+					{
+						if (x == (used - 1))
+						{
+							data[x]->setbrand("");
+							data[x]->setname("");
+							data[x]->sethorsepower(0);
+							data[x]->setprice(0);
+							data[x]->setcylinders(0);
+						}
+						else
+						{
+							for (int y = x+1; y < used; y++)
+							{
+								data[y-1]->setbrand(data[y]->getbrand());
+								data[y-1]->setname(data[y]->getname());
+								data[y-1]->sethorsepower(data[y]->gethorsepower());
+								data[y-1]->setprice(data[y]->getprice());
+								data[y-1]->setcylinders(data[y]->getcylinders());
+							}
+						}
+						used--;
+						if (x <= 2)
+						{
+							x = 0;
+						}
+						else
+						{
+							x = x-2;
+						}
+					}
+				}
+			}
+			if (found == false){
+				cout << "Super car you entered was not found in the data base, please try again \n\n";
+			}
+		}
+
+		void delete_supercar_c()
+		{
+			int cylinders;
+			string response;
+			cout << "Enter the number of cylinders of the supercar you would like to remove: ";
+			getline(cin,response);
+			cylinders = stoi(response);
+			cout <<"\n";
+			bool found = false;
+			for (int x = 0; x < used; x++)
+			{
+				if (data[x]->getprice() == cylinders)
+				{
+					found = true;
+					string response;
+					list_one(x);
+					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
+					cin.clear();
+					cin.ignore(123,'\n');
 					getline(cin,response);
 					cout << "\n";
 					for (char &c : response)

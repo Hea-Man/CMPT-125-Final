@@ -96,6 +96,18 @@ class Menu
                 {
                     d.delete_supercar_n();
                 }
+                else if (message == "h")
+                {
+                    d.delete_supercar_h();
+                }
+                else if (message == "p")
+                {
+                    d.delete_supercar_p();
+                }
+                else if (message == "c")
+                {
+                    d.delete_supercar_c();
+                }
                 else if (message == "r")
                 {
                     stop++;
@@ -211,6 +223,8 @@ class Menu
                 {
                     add(d);
                     cout << "Supercar Added\n\n";
+                    cin.clear();
+                    cin.ignore(123,'\n');
                 }
                 else if (message == "f")
                 {
