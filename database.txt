@@ -1,5 +1,3 @@
-Tesla,Model 3 Performance,470,60000,0
-Lexus,LFA,552,450000,10
 Ferrari,458,562,230000,8
 Maserati,MC20,620,195000,6
 Porsche,911 Turbo S,650,200000,6

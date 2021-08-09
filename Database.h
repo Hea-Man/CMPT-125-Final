@@ -562,23 +562,17 @@ class database {
 					}
 					if (response == "y")
 					{
+
 						if (x == (used - 1))
 						{
-							data[x]->setbrand("");
-							data[x]->setname("");
-							data[x]->sethorsepower(0);
-							data[x]->setprice(0);
-							data[x]->setcylinders(0);
+							delete data[x];
 						}
 						else
 						{
+							delete data[x];
 							for (int y = x+1; y < used; y++)
 							{
-								data[y-1]->setbrand(data[y]->getbrand());
-								data[y-1]->setname(data[y]->getname());
-								data[y-1]->sethorsepower(data[y]->gethorsepower());
-								data[y-1]->setprice(data[y]->getprice());
-								data[y-1]->setcylinders(data[y]->getcylinders());
+								data[y-1] = data[y];
 							}
 						}
 						used--;
@@ -614,8 +608,6 @@ class database {
 					string response;
 					list_one(x);
 					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
-					cin.clear();
-					cin.ignore(123,'\n');
 					getline(cin,response);
 					cout << "\n";
 					for (char &c : response)
@@ -626,21 +618,14 @@ class database {
 					{
 						if (x == (used - 1))
 						{
-							data[x]->setbrand("");
-							data[x]->setname("");
-							data[x]->sethorsepower(0);
-							data[x]->setprice(0);
-							data[x]->setcylinders(0);
+							delete data[x];
 						}
 						else
 						{
+							delete data[x];
 							for (int y = x+1; y < used; y++)
 							{
-								data[y-1]->setbrand(data[y]->getbrand());
-								data[y-1]->setname(data[y]->getname());
-								data[y-1]->sethorsepower(data[y]->gethorsepower());
-								data[y-1]->setprice(data[y]->getprice());
-								data[y-1]->setcylinders(data[y]->getcylinders());
+								data[y-1] = data[y];
 							}
 						}
 						used--;
@@ -677,8 +662,6 @@ class database {
 					string response;
 					list_one(x);
 					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
-					cin.clear();
-					cin.ignore(123,'\n');
 					getline(cin,response);
 					cout << "\n";
 					for (char &c : response)
@@ -689,21 +672,14 @@ class database {
 					{
 						if (x == (used - 1))
 						{
-							data[x]->setbrand("");
-							data[x]->setname("");
-							data[x]->sethorsepower(0);
-							data[x]->setprice(0);
-							data[x]->setcylinders(0);
+							delete data[x];
 						}
 						else
 						{
+							delete data[x];
 							for (int y = x+1; y < used; y++)
 							{
-								data[y-1]->setbrand(data[y]->getbrand());
-								data[y-1]->setname(data[y]->getname());
-								data[y-1]->sethorsepower(data[y]->gethorsepower());
-								data[y-1]->setprice(data[y]->getprice());
-								data[y-1]->setcylinders(data[y]->getcylinders());
+								data[y-1] = data[y];
 							}
 						}
 						used--;
@@ -740,8 +716,6 @@ class database {
 					string response;
 					list_one(x);
 					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
-					cin.clear();
-					cin.ignore(123,'\n');
 					getline(cin,response);
 					cout << "\n";
 					for (char &c : response)
@@ -752,21 +726,14 @@ class database {
 					{
 						if (x == (used - 1))
 						{
-							data[x]->setbrand("");
-							data[x]->setname("");
-							data[x]->sethorsepower(0);
-							data[x]->setprice(0);
-							data[x]->setcylinders(0);
+							delete data[x];
 						}
 						else
 						{
+							delete data[x];
 							for (int y = x+1; y < used; y++)
 							{
-								data[y-1]->setbrand(data[y]->getbrand());
-								data[y-1]->setname(data[y]->getname());
-								data[y-1]->sethorsepower(data[y]->gethorsepower());
-								data[y-1]->setprice(data[y]->getprice());
-								data[y-1]->setcylinders(data[y]->getcylinders());
+								data[y-1] = data[y];
 							}
 						}
 						used--;
@@ -803,8 +770,6 @@ class database {
 					string response;
 					list_one(x);
 					cout << "This is the search result. Are you sure you want to delete this? (Y)es or (N)o? ";
-					cin.clear();
-					cin.ignore(123,'\n');
 					getline(cin,response);
 					cout << "\n";
 					for (char &c : response)
@@ -815,21 +780,14 @@ class database {
 					{
 						if (x == (used - 1))
 						{
-							data[x]->setbrand("");
-							data[x]->setname("");
-							data[x]->sethorsepower(0);
-							data[x]->setprice(0);
-							data[x]->setcylinders(0);
+							delete data[x];
 						}
 						else
 						{
+							delete data[x];
 							for (int y = x+1; y < used; y++)
 							{
-								data[y-1]->setbrand(data[y]->getbrand());
-								data[y-1]->setname(data[y]->getname());
-								data[y-1]->sethorsepower(data[y]->gethorsepower());
-								data[y-1]->setprice(data[y]->getprice());
-								data[y-1]->setcylinders(data[y]->getcylinders());
+								data[y-1] = data[y];
 							}
 						}
 						used--;
