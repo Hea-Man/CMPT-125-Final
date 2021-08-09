@@ -214,7 +214,7 @@ class database {
 						}
 					}
 					if (found == false) {
-					cout << "There is no super car with the name" << substr << "in the data base right now \n" ;
+					cout << "There is no super car with the name " << substr << " in the data base right now \n" ;
 					}
 				}
 				//If user doesn't type E Or R
@@ -249,7 +249,7 @@ class database {
 						}
 					}
 					if (found == false) {
-					cout << "There is no super car with the brand" << nme << "in the data base right now \n" ;
+					cout << "There is no super car with the brand " << nme << " in the data base right now \n" ;
 					}
 				}
 				else if (input == 'y'){
@@ -271,7 +271,7 @@ class database {
 						}
 					}
 					if (found == false) {
-					cout << "There is no super car with the brand" << substr << "in the data base right now \n" ;
+					cout << "There is no super car with the brand " << substr << " in the data base right now \n" ;
 					}
 				}
 				//If user doesn't type E Or R
@@ -317,7 +317,7 @@ class database {
 						}
 					}
 					if (found == false) {
-					cout << "There is no super car with the price" << num << "in the data base right now \n" ;
+					cout << "There is no super car with the price " << num << " in the data base right now \n" ;
 					}
 				}
 
