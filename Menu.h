@@ -45,7 +45,7 @@ class Menu
                 cout << "(B)rand of Supercars.\n";
                 cout << "(C)ylinders Supercar has\n";
                 cout << "(R)eturn to Main Menu.\n";
-                getline(cin,message);
+                cin >> message;
                 cout << "\n";
                 
                 for (char &c : message)
