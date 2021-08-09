@@ -23,3 +23,6 @@ Known Bugs
 Extra Features
 --------------
 
+- We used github to work on this project together. We learned github and then we
+  used its various features to work on the project. The link to it is here:
+  https://github.com/Hea-Man/CMPT-125-Final
