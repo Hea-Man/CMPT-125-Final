@@ -81,6 +81,7 @@ class Menu
                 cout << "(P)rice of Supercar.\n";
                 cout << "(H)orsepower of Supercar.\n";
                 cout << "(B)rand of Supercars.\n";
+                cout << "(C)ylinders the supercar has.\n";
                 cout << "(R)eturn to Main Menu.\n";
                 getline(cin,message);
                 cout << "\n";
